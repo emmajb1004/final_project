@@ -5,6 +5,7 @@
 
 define Amy = Character("Amy", color="FFC72C")
 define AI = Character("A.I.MEE", color="6A6767")
+define queried = 0
 
 # The game starts here.
 
@@ -27,6 +28,8 @@ label paint_brush_night:
     {i}Show scene of Amy painting and A.I.MEE sitting against
     the wall with the paint brush in the room{/i}
     """
+label paint_menu:
+    "Would you like A.I.MEE to try and paint you a picture?"
 
 menu:
     "Yes":
@@ -59,6 +62,9 @@ label ear_buds_night_no_query:
     A.I.MEE is sitting against the back wall, waiting for a query{/i}
     """
 
+label sing_menu:
+    "Would you like A.I.MEE to try and sing you a song?"
+
 menu:
     "Yes":
         "{i}User has selected to query A.I.MEE{/i}"
@@ -85,6 +91,13 @@ label tv_night_yes_query:
     """
 
 label tv_night_no_query:
+    """
+    {i}Show scene of Amy happily painting her picture. 
+    A.I.MEE is sitting against the wall, waiting for a query{/i}
+    """
+
+label movie_menu:
+    "Would you like A.I.MEE to try and make you a movie?"
 
 menu:
     "Yes":
@@ -119,6 +132,9 @@ label game_night_no_query:
     {i}Show scene of Amy sitting and happily looking at her finished painting.
     A.I.MEE is sitting against the wall, waiting for a query{/i}
     """
+
+label game_menu:
+    "Aimee wants to play a game."
 
 menu:
     "Okay":
