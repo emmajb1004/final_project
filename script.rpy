@@ -23,16 +23,27 @@ label paint_brush_day:
     and A.I.MEE looking at paint brush{/i}
     """
 
-    menu:
-        "search studio":
-            "{i}Show Amy searching studio{/i}"
+    $ searched_studio = False
+    $ searched_bathroom = False
+    $ searched_kitchen = False
+
+    label paint_brush_search:
+        if searched_studio and searched_bathroom and searched_kitchen:
             jump paint_brush_night
-        "search bathroom":
-            "{i}Show Amy searching bathroom{/i}"
-            jump paint_brush_night
-        "search kitchen":
-            "{i}Show Amy searching kitchen{/i}"
-            jump paint_brush_night
+        menu:
+            "search studio" if not searched_studio:
+                "{i}Show Amy searching studio{/i}"
+                $ searched_studio = True
+                jump paint_brush_search
+            "search bathroom" if not searched_bathroom:
+                "{i}Show Amy searching bathroom{/i}"
+                $ searched_bathroom = True
+                jump paint_brush_search
+            "search kitchen" if not searched_kitchen:
+                "{i}Show Amy searching kitchen{/i}"
+                $ searched_kitchen = True
+                jump paint_brush_search
+
 
 label paint_brush_night:
     """
@@ -56,16 +67,27 @@ label ear_buds_day_yes_query:
     {i}Show scene of Amy looking for her earbuds and forgetting music.
     A.I.MEE has earbuds and is listening to the music{/i}
     """
-    menu:
-        "search bedroom":
-            "{i}Show Amy searching bedroom{/i}"
+    $ searched_bedroom = False
+    $ searched_living_room = False
+    $ searched_kitchen = False
+    
+    label ear_buds_search:
+        if searched_bedroom and searched_living_room and searched_kitchen:
             jump ear_buds_night_yes_query
-        "search living room":
-            "{i}Show Amy searching living room{/i}"
-            jump ear_buds_night_yes_query
-        "search kitchen":
-            "{i}Show Amy searching kitchen{/i}"
-            jump ear_buds_night_yes_query
+        
+        menu:
+            "search bedroom" if not searched_bedroom:
+                "{i}Show Amy searching bedroom{/i}"
+                $ searched_bedroom = True
+                jump ear_buds_search
+            "search living room" if not searched_living_room:
+                "{i}Show Amy searching living room{/i}"
+                $ searched_living_room = True
+                jump ear_buds_search
+            "search kitchen" if not searched_kitchen:
+                "{i}Show Amy searching kitchen{/i}"
+                $ searched_kitchen = True
+                jump ear_buds_search
 
 label ear_buds_day_no_query:
     """
@@ -106,16 +128,28 @@ label tv_day_yes_query:
     {i}Show scene of Amy in living room, grey, wathcing static on TV.
     A.I.MEE is watching a scene from a movie and learning human behavior{/i}
     """
-    menu:
-        "try to think 1":
-            "{i}Show Amy trying to think{/i}"
-            jump tv_night_yes_query
-        "try to think 2":
-            "{i}Show Amy trying to think{/i}"
-            jump tv_night_yes_query
-        "try to think 3":
-            "{i}Show Amy trying to think{/i}"
-            jump tv_night_yes_query
+
+    $ thought_one = False
+    $ thought_two = False
+    $ thought_three = False
+    
+    label tv_menu:
+        if thought_one and thought_two and thought_three:
+            jump tv_night_yes_query       
+
+        menu:
+            "try to think 1" if not thought_one:
+                "{i}Show Amy trying to think{/i}"
+                $ thought_one = True
+                jump tv_menu
+            "try to think 2" if not thought_two:
+                "{i}Show Amy trying to think{/i}"
+                $ thought_two = True
+                jump tv_menu
+            "try to think 3" if not thought_three:
+                "{i}Show Amy trying to think{/i}"
+                $ thought_three = True
+                jump tv_menu
 
 label tv_day_no_query:
     """
@@ -158,16 +192,26 @@ label game_day_yes_query:
     A.I.MEE has a controller in her hand and is pressed against 
     the wall, as if she can sense Amy.{/i}
     """
-    menu:
-        "cry 1":
-            "{i}Show Amy crying{/i}"
-            jump game_night_yes_query
-        "cry 2":
-            "{i}Show Amy crying{/i}"
-            jump game_night_yes_query
-        "cry 3":
-            "{i}Show Amy crying{/i}"
-            jump game_night_yes_query
+    $ cried_one = False
+    $ cried_two = False
+    $ cried_three = False
+
+    label game_menu:
+        if cried_one and cried_two and cried_three:
+            jump game_night_yes_query   
+        menu:
+            "cry 1" if not cried_one:
+                "{i}Show Amy crying{/i}"
+                $ cried_one = True
+                jump game_menu
+            "cry 2" if not cried_two:
+                "{i}Show Amy crying{/i}"
+                $ cried_two = True
+                jump game_menu
+            "cry 3" if not cried_three:
+                "{i}Show Amy crying{/i}"
+                $ cried_three = True
+                jump game_menu
 
 label game_day_no_query:
     """
@@ -184,7 +228,7 @@ label game_night_yes_query:
     everything from her. A.I.MEE is standing at the front looking out,
     like she is breaking the fourth wall and can see us, with her hand raised{/i}
     """
-    jump game_menu
+    jump game_query_menu
 
 label game_night_no_query:
     """
@@ -193,7 +237,7 @@ label game_night_no_query:
     """
     return
 
-label game_menu:
+label game_query_menu:
     "Aimee wants to play a game."
 
     menu:
