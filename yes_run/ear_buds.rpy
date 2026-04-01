@@ -26,24 +26,10 @@ label ear_buds_day_yes_query:
                 $ searched_kitchen = True
                 jump ear_buds_search
 
-label ear_buds_day_no_query:
-    """
-    {i}Show scene of Amy singing and 
-    A.I.MEE sitting and waiting for a query{/i}
-    """
-    jump ear_buds_night_no_query
-
 label ear_buds_night_yes_query:
     """
     {i}Show scene of Amy trying to paint but having a harder time.
     A.I.MEE has paint brush and is listening to music and swirling 
     finger on floor like she is painting{/i}
-    """
-    jump sing_menu
-
-label ear_buds_night_no_query:
-    """
-    {i}Show scene of Amy happily painting her picture.
-    A.I.MEE is sitting against the back wall, waiting for a query{/i}
     """
     jump sing_menu
