@@ -125,6 +125,12 @@ label paint_brush_day:
                 Amy "Maybe I'll look somewhere else."
                 jump paint_brush_search
 
+label query_AIMEE_paint:
+    scene background
+    """
+    Show AIMEE looking at paintbrush on the floor.
+    """
+
 label paint_brush_night:
     """
     {i}Show scene of Amy painting and A.I.MEE sitting against

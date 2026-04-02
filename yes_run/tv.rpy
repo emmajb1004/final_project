@@ -35,6 +35,12 @@ label tv_day_yes_query:
                 $ action_three = True
                 jump tv_menu
 
+label query_AIMEE_tv:
+    scene background
+    """
+    Show AIMEE watching show on tv that is against back wall.
+    """
+
 label tv_night_yes_query:
     """
     {i}Show scene of Amy in a dull room, trying to paint but it is hard.

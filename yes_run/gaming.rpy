@@ -26,6 +26,12 @@ label game_day_yes_query:
                 $ cried_three = True
                 jump game_menu
 
+label query_AIMEE_gaming:
+    scene background
+    """
+    Show AIMEE with controller in hand, pressed against the wall.
+    """
+
 
 label game_night_yes_query:
     """

@@ -126,6 +126,12 @@ label ear_buds_day_yes_query:
                     Amy "Maybe I'll look somewhere else."
                     jump ear_buds_search
 
+label query_AIMEE_earbuds:
+    scene background
+    """
+    Show AIMEE trying to listen to music on the floor.
+    """
+
 label ear_buds_night_yes_query:
     """
     {i}Show scene of Amy trying to paint but having a harder time.
