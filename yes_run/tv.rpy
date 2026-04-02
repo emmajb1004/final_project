@@ -9,21 +9,25 @@ label tv_day_yes_query:
     $ thought_three = False
     
     label tv_menu:
-        if thought_one and thought_two and thought_three:
+        if action_one and action_two and action_three:
             jump tv_night_yes_query       
 
         menu:
-            "try to think 1" if not thought_one:
+            "go to kitchen" if not action_one:
                 "{i}Show Amy trying to think{/i}"
-                $ thought_one = True
+                $ action_one = True
                 jump tv_menu
+        menu:
+            "try to get glass"
             "try to think 2" if not thought_two:
                 "{i}Show Amy trying to think{/i}"
                 $ thought_two = True
                 jump tv_menu
+        menu:
+            "try to lay down"
             "try to think 3" if not thought_three:
                 "{i}Show Amy trying to think{/i}"
-                $ thought_three = True
+                $ action_three = True
                 jump tv_menu
 
 label tv_night_yes_query:
