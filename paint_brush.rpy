@@ -23,10 +23,15 @@ label paint_brush_day:
     $ searched_bathroom = False
     $ searched_kitchen = False
 
+    label introduction_paint_brush:
+        scene hallway
+        Amy "I can't find my paint brush anywhere. I know I have lots of paint brushes I could use but it annoys me I can't find this specific one."
+
     label paint_brush_search:
         if searched_studio and searched_bathroom and searched_kitchen:
             Amy "Hmm. I don't know. I've searched everywhere. Maybe it'll turn up later."
             jump paint_brush_night
+            scene hallway
         Amy "Where should I look?"
     
     menu:
@@ -41,7 +46,7 @@ label paint_brush_day:
             jump kitchen_search_loop_paint
 
     label studio_search_loop_paint:
-        scene hallway
+        scene hallway with dissolve
         # check if room has been searched
         if items_searched_studio == 3:
             Amy "Can't find it here."
@@ -68,7 +73,7 @@ label paint_brush_day:
                 jump paint_brush_search
 
     label bathroom_search_loop_paint:
-        scene bathroom
+        scene bathroom with dissolve
         # check if room has been searched
         if items_searched_bathroom == 3:
             Amy "I guess it's not here."
@@ -95,7 +100,7 @@ label paint_brush_day:
                 jump paint_brush_search
 
     label kitchen_search_loop_paint:
-        scene kitchen
+        scene kitchen with dissolve
         if items_searched_kitchen == 3:
             Amy "I don't think it is here."
             $ searched_kitchen = True

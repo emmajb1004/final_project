@@ -22,11 +22,16 @@ label ear_buds_day_yes_query:
     $ searched_bedroom = False
     $ searched_living_room = False
     $ searched_kitchen = False
+
+    label introduction_ear_buds:
+        scene hallway
+        Amy "I can't rememeber how my favorite song goes. I don't get it. Where are my ear buds?"
     
     label ear_buds_search:
         if searched_bedroom and searched_living_room and searched_kitchen:
             Amy "I've searched anywhere. I don't understand. My head hurts. I just need to call it a day. And paint."
             jump ear_buds_night_yes_query
+        scene hallway
         Amy "Where should I search?"
         
         menu:
@@ -41,7 +46,7 @@ label ear_buds_day_yes_query:
                 jump kitchen_search_loop_earbuds
     
         label bedroom_search_loop_earbuds:
-            scene master_bedroom
+            scene master_bedroom with dissolve
             # check if room has been searched
             if items_searched_bedroom == 3:
                 Amy "Hmm I guess they aren't in here."
@@ -68,7 +73,7 @@ label ear_buds_day_yes_query:
                     jump ear_buds_search
 
         label living_room_search_loop_earbuds:
-            scene living_room
+            scene living_room with dissolve
             # check if room has already been searched
             if items_searched_living_room == 3:
                 Amy "Can't find them anywhere here."
@@ -95,7 +100,7 @@ label ear_buds_day_yes_query:
                     jump ear_buds_search
             
         label kitchen_search_loop_earbuds:
-            scene kitchen
+            scene kitchen with dissolve
             # check if room has already been searched
             if items_searched_kitchen == 3:
                 Amy "Nowhere to be found here"

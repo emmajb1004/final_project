@@ -10,7 +10,7 @@ default queried = 0
 # The game starts here.
 
 label start:
-
+    scene grey
     "Would you like to query the machine?"
 
     menu:
@@ -19,6 +19,7 @@ label start:
             jump paint_brush_day
 
 label paint_menu:
+    scene grey
     "Would you like A.I.MEE to try and paint you a picture?"
 
     menu:
@@ -32,6 +33,7 @@ label paint_menu:
 
 
 label sing_menu:
+    scene grey
     "Would you like A.I.MEE to try and sing you a song?"
 
     menu:
@@ -44,6 +46,7 @@ label sing_menu:
             jump tv_day_no_query
 
 label movie_menu:
+    scene grey
     "Would you like A.I.MEE to try and make you a movie?"
 
     menu:
@@ -56,6 +59,7 @@ label movie_menu:
             jump game_day_no_query
 
 label game_query_menu:
+    scene
     "Aimee wants to play a game."
 
     menu:
