@@ -26,7 +26,7 @@ label paint_brush_day:
                 jump paint_brush_search
             
             "search bathroom" if not searched_bathroom:
-                show bathroom
+                scene bathroom
                 "{i}Show Amy searching bathroom{/i}"
                 menu:
                     "paint stained towel":
@@ -39,6 +39,7 @@ label paint_brush_day:
                 jump paint_brush_search
             
             "search kitchen" if not searched_kitchen:
+                scene kitchen
                 "{i}Show Amy searching kitchen{/i}"
                 menu:
                     "magnet of friends":

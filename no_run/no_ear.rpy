@@ -1,4 +1,5 @@
 label ear_buds_day_no_query:
+    show living_room
     """
     {i}Show scene of Amy singing and 
     A.I.MEE sitting and waiting for a query{/i}
