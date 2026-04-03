@@ -40,11 +40,3 @@ label query_AIMEE_tv:
     """
     Show AIMEE watching show on tv that is against back wall.
     """
-
-label tv_night_yes_query:
-    """
-    {i}Show scene of Amy in a dull room, trying to paint but it is hard.
-    A.I.MEE is laying on the floor (with paintbrush, music, tv)
-    trying to image what feeling emotions is like{/i}
-    """
-    jump movie_menu

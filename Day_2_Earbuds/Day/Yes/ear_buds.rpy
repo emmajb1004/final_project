@@ -131,11 +131,3 @@ label query_AIMEE_earbuds:
     """
     Show AIMEE trying to listen to music on the floor.
     """
-
-label ear_buds_night_yes_query:
-    """
-    {i}Show scene of Amy trying to paint but having a harder time.
-    A.I.MEE has paint brush and is listening to music and swirling 
-    finger on floor like she is painting{/i}
-    """
-    jump sing_menu
