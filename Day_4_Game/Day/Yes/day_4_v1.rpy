@@ -16,7 +16,7 @@ label day_4_v1:
 
     label day_4_menu_v1:
         if cried_one and cried_two and cried_three:
-            jump night_4_v1  
+            jump day_4_AI_v1  
         menu:
             "pull yourself together" if not cried_one:
                 Amy "I can't."
@@ -31,8 +31,9 @@ label day_4_v1:
                 $ cried_three = True
                 jump day_4_menu_v1
 
-label query_AIMEE_gaming_version_1:
+label day_4_AI_v1:
     scene background
     """
     Show AIMEE with controller in hand, pressed against the wall.
     """
+    jump night_4_v1

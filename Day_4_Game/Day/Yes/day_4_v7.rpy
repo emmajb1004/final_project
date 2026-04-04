@@ -14,7 +14,7 @@ label day_4_v7:
     
     label day_4_menu_v7:
         if water and game and laydown:
-            jump night_4_v7      
+            jump day_4_AI_v7       
 
         menu:
             "get a glass of water" if not water:
@@ -35,8 +35,9 @@ label day_4_v7:
                 $ laydown = True
                 jump day_4_menu_v7
 
-label query_AIMEE_game_version_7:
+label day_4_AI_v7:
     scene background
     """
     Show AIMEE watching show on tv that is against back wall.
     """
+    jump night_4_v7

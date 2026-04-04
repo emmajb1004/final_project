@@ -14,7 +14,7 @@ label day_4_v3:
     
     label day_4_menu_v3:
         if game and kitchen and water:
-            jump night_4_v3      
+            jump day_4_AI_v3      
 
         menu:
             "keeping trying to play" if not game:
@@ -35,8 +35,9 @@ label day_4_v3:
                 $ water = True
                 jump day_4_menu_v3
 
-label query_AIMEE_game_version_3:
+label day_4_AI_v3:
     scene background
     """
     Show AIMEE watching show on tv that is against back wall.
     """
+    jump night_4_v3
