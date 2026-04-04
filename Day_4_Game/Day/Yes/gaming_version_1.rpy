@@ -1,4 +1,4 @@
-label game_day_yes_query:
+label game_day_query_version_1:
     """
     {i}Show scene of Amy curled up on the floor crying,
     controller in front of her, because she forgot how to play games.
@@ -9,24 +9,29 @@ label game_day_yes_query:
     $ cried_two = False
     $ cried_three = False
 
-    label game_menu:
+
+    label introduction_game_version_1:
+        scene living_room with pixellate
+        Amy "I don't know what this is."
+
+    label game_menu_version_1:
         if cried_one and cried_two and cried_three:
             jump game_night_yes_query   
         menu:
-            "cry 1" if not cried_one:
-                "{i}Show Amy crying{/i}"
+            "pull yourself together" if not cried_one:
+                Amy "I can't."
                 $ cried_one = True
-                jump game_menu
-            "cry 2" if not cried_two:
-                "{i}Show Amy crying{/i}"
+                jump game_menu_version_1
+            "try to think of anything" if not cried_two:
+                Amy "My head..."
                 $ cried_two = True
-                jump game_menu
-            "cry 3" if not cried_three:
-                "{i}Show Amy crying{/i}"
+                jump game_menu_version_1
+            "break down" if not cried_three:
+                Amy "..."
                 $ cried_three = True
-                jump game_menu
+                jump game_menu_version_1
 
-label query_AIMEE_gaming:
+label query_AIMEE_gaming_version_1:
     scene background
     """
     Show AIMEE with controller in hand, pressed against the wall.

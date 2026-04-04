@@ -6,6 +6,10 @@
 define Amy = Character("Amy", color="FFC72C")
 define AI = Character("A.I.MEE", color="6A6767")
 default queried = 0
+default paint_query = False
+default song_query = False
+default movie_query = False
+default play_game = True
 
 # The game starts here.
 
@@ -26,6 +30,7 @@ label paint_menu:
         "Yes":
             "{i}User has selected to query A.I.MEE{/i}"
             $ queried = queried + 1
+            $ paint_query = True
             jump ear_buds_day_yes_query
         "No":
             "{i}User has selected not to query the machine{/i}"
@@ -40,6 +45,7 @@ label sing_menu:
         "Yes":
             "{i}User has selected to query A.I.MEE{/i}"
             $ queried = queried + 1
+            $ song_query = True
             jump tv_day_yes_query
         "No":
             "{i}User has selected not to query the machine{/i}"
@@ -53,18 +59,22 @@ label movie_menu:
         "Yes":
             "{i}User has selected to query A.I.MEE{/i}"
             $ queried = queried + 1
+            $ movie_query = True
             jump game_day_yes_query
         "No":
             "{i}User has selected not to query the machine{/i}"
             jump game_day_no_query
 
 label game_query_menu:
-    scene
-    "Aimee wants to play a game."
-
+    scene grey
+    if queried > 2:
+        $ play_game = False
+    "Aimee wants to play a game"
     menu:
         "Okay":
-            "{i}You will play a game with Aimee{/i}"
+            "You will play with Aimee"
+        "I don't want to play." if not play_game:
+            "You won't play with Aimee."
 
 label end_queried:
     """
