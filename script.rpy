@@ -20,7 +20,7 @@ label start:
     menu:
         "Yes":
             "{i}Show starting scene{/i}"
-            jump paint_brush_day
+            jump day_1
 
 label paint_menu:
     scene grey
@@ -31,11 +31,10 @@ label paint_menu:
             "{i}User has selected to query A.I.MEE{/i}"
             $ queried = queried + 1
             $ paint_query = True
-            jump ear_buds_day_yes_query
+            jump day_2_v1
         "No":
             "{i}User has selected not to query the machine{/i}"
-            jump ear_buds_day_no_query
-
+            jump day_2_v2
 
 label sing_menu:
     scene grey
@@ -46,10 +45,10 @@ label sing_menu:
             "{i}User has selected to query A.I.MEE{/i}"
             $ queried = queried + 1
             $ song_query = True
-            jump tv_day_yes_query
+            jump day_3_v1
         "No":
             "{i}User has selected not to query the machine{/i}"
-            jump tv_day_no_query
+            jump day_3_v4
 
 label movie_menu:
     scene grey
@@ -60,20 +59,23 @@ label movie_menu:
             "{i}User has selected to query A.I.MEE{/i}"
             $ queried = queried + 1
             $ movie_query = True
-            jump game_day_yes_query
+            jump day_4_v1
         "No":
             "{i}User has selected not to query the machine{/i}"
-            jump game_day_no_query
+            jump day_4_v8
 
 label game_query_menu:
     scene grey
-    if queried > 2:
+    if queried < 2:
         $ play_game = False
+    else:
+        $ queried = True
     "Aimee wants to play a game"
+    
     menu:
         "Okay":
             "You will play with Aimee"
-        "I don't want to play." if not play_game:
+        "I don't want to play." if play_game == False:
             "You won't play with Aimee."
 
 label end_queried:
