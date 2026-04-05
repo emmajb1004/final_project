@@ -46,7 +46,7 @@ label day_1:
             jump day_1_kitchen_search_loop
 
     label day_1_studio_search_loop:
-        scene hallway with dissolve
+        scene studio with dissolve
         # check if room has been searched
         if items_searched_studio == 3:
             Amy "Can't find it here."

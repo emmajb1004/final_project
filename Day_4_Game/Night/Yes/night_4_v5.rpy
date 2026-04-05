@@ -1,4 +1,5 @@
 label night_4_v5:
+    scene studio
     """
     {i}Show scene of Amy standing, looking at her finished landscape picture,
     it has a hallow of light around it. You get the sense it has taken

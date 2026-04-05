@@ -1,7 +1,6 @@
 label night_4_v4:
-    show living_room
+    scene studio
     """
-    {i}Show scene of Amy laughing and happily watching something on TV.
-    A.I.MEE is sitting against the back wall, waiting for a query{/i}
+    {i}Amy has happily finished her painting{/i}
     """
     jump game_query_menu
