@@ -20,19 +20,19 @@ label day_3_v3:
 
         menu:
             "get laptop" if not laptop:
-                scene master_bedroom with dissolve
+                scene master_bedroom with pixellate
                 Amy "My laptop isn't working either. The screen is just static. I have to check my phone."
                 $ laptop = True
                 jump day_3_menu_v3
         menu:
             "check phone" if not phone:
-                scene hallway with dissolve
+                scene hallway with pixellate
                 Amy "It's not working. Why is everything static? What's going on?"
                 $ phone = True
                 jump day_3_menu_v3
         menu:
             "check wifi" if not wifi:
-                scene dining_kitchen with dissolve
+                scene dining_kitchen with pixellate
                 Amy "The wifi is fine. I don't get it. I think I just need a minute. My head hurts."
                 $ wifi = True
                 jump day_3_menu_v3

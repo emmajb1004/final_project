@@ -127,6 +127,7 @@ label day_1:
 
 label day_1_AI:
     scene background
+    show paint_brush
     """
     Show AIMEE looking at paintbrush on the floor.
     """

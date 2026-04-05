@@ -29,7 +29,7 @@ label paint_menu:
     menu:
         "Yes":
             "{i}User has selected to query A.I.MEE{/i}"
-            $ queried = queried + 1
+            $ queried += 1
             $ paint_query = True
             jump day_2_v1
         "No":
@@ -43,12 +43,18 @@ label sing_menu:
     menu:
         "Yes":
             "{i}User has selected to query A.I.MEE{/i}"
-            $ queried = queried + 1
+            $ queried += 1
             $ song_query = True
-            jump day_3_v1
+            if paint_query:
+                jump day_3_v1
+            else:
+                jump day_3_v3
         "No":
             "{i}User has selected not to query the machine{/i}"
-            jump day_3_v4
+            if paint_query:
+                jump day_3_v2
+            else:
+                jump day_3_v4
 
 label movie_menu:
     scene grey
@@ -57,12 +63,26 @@ label movie_menu:
     menu:
         "Yes":
             "{i}User has selected to query A.I.MEE{/i}"
-            $ queried = queried + 1
+            $ queried += 1
             $ movie_query = True
-            jump day_4_v1
+            if paint_query and song_query:
+                jump day_4_v1
+            elif paint_query and not song_query:
+                jump day_4_v3
+            elif not paint_query and song_query:
+                jump day_4_v5
+            else:
+                jump day_4_v7
         "No":
             "{i}User has selected not to query the machine{/i}"
-            jump day_4_v8
+            if paint_query and song_query:
+                jump day_4_v2
+            elif paint_query and not song_query:
+                jump day_4_v4
+            elif not paint_query and song_query:
+                jump day_4_v6
+            else: 
+                jump day_4_v8
 
 label game_query_menu:
     scene grey
