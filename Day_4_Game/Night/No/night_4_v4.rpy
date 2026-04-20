@@ -1,6 +1,4 @@
 label night_4_v4:
     scene studio
-    """
-    {i}Amy has happily finished her painting{/i}
-    """
+    Amy "I don't know why I have been struggling with this piece a little. But I am feeling better now."
     jump game_query_menu

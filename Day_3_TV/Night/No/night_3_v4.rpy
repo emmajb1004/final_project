@@ -1,8 +1,4 @@
 label night_3_v4:
     scene studio
-    """
-    {i}Show scene of Amy trying to paint but having a harder time.
-    A.I.MEE has paint brush and is listening to music and swirling 
-    finger on floor like she is painting{/i}
-    """
+    Amy "I'm working on this piece for my dad. He taught me how to paint and I want to make something special for him. I owe my love of it to him."
     jump movie_menu

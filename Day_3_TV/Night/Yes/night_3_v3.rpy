@@ -1,8 +1,4 @@
 label night_3_v3:
     scene studio
-    """
-    {i}Show scene of Amy trying to paint but having a harder time.
-    A.I.MEE has paint brush and is listening to music and swirling 
-    finger on floor like she is painting{/i}
-    """
+    Amy "My hand feels so shaky. Something isn't right."
     jump movie_menu

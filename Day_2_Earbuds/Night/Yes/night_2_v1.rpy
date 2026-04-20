@@ -1,8 +1,4 @@
 label night_2_v1:
     scene studio
-    """
-    {i}Show scene of Amy trying to paint but having a harder time.
-    A.I.MEE has paint brush and is listening to music and swirling 
-    finger on floor like she is painting{/i}
-    """
+    Amy "I'm having a harder time painting today. My painting just doesn't feel like me right now. But whose else would it be?"
     jump sing_menu

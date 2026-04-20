@@ -1,6 +1,4 @@
 label night_4_v2:
     scene studio
-    """
-    {i}Amy has happily finished her painting{/i}
-    """
+    Amy "I just want to stop. I can't... make my hand stop."
     jump game_query_menu
