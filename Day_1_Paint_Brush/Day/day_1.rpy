@@ -29,9 +29,13 @@ screen studio_screen():
             at item_hover, Transform(zoom=0.3)
             xpos 0.75 ypos 0.165 anchor (0.5, 0.5) 
             action Jump("clicked_dad")
-
+    
     textbutton "Leave Room":
-        align (0.95, 0.05)
+        align (0.01, 0.05) 
+        text_color "#ffffff"
+        text_outlines [ (2, "#000", 0, 0) ] 
+        text_hover_color "#ff0"
+        text_bold True
         action Jump("leave_studio")
 
 # This is the "Investigation Mode" UI for the bathroom
@@ -60,7 +64,11 @@ screen bathroom_screen():
 
     # A way to exit the screen
     textbutton "Leave Room":
-        align (0.95, 0.05)
+        align (0.01, 0.05) 
+        text_color "#ffffff"
+        text_outlines [ (2, "#000", 0, 0) ] 
+        text_hover_color "#ff0"
+        text_bold True
         action Jump("leave_bathroom")
 
 screen kitchen_screen():
@@ -89,7 +97,11 @@ screen kitchen_screen():
             action Jump("clicked_mug")
 
     textbutton "Leave Room":
-        align (0.95, 0.05)
+        align (0.01, 0.05) 
+        text_color "#ffffff"
+        text_outlines [ (2, "#000", 0, 0) ] 
+        text_hover_color "#ff0"
+        text_bold True
         action Jump("leave_kitchen")
 
 label day_1:
@@ -142,6 +154,7 @@ label day_1:
 
     label day_1_studio_search_loop:
         scene studio with dissolve
+        show happy at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.9)
         # check if room has been searched
         if items_searched_studio == 3:
             Amy "Can't find it here."
@@ -175,6 +188,7 @@ label day_1:
 
     label day_1_bathroom_search_loop:
         scene bathroom with dissolve
+        show happy at Transform (xpos=0.9, ypos=.7, anchor=(0.5,0.5),zoom=1.5)
 
         # check if room has been searched
         if items_searched_bathroom == 3:
@@ -208,6 +222,7 @@ label day_1:
 
     label day_1_kitchen_search_loop:
         scene kitchen with dissolve
+        show happy at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.9)
         if items_searched_kitchen == 3:
             Amy "I don't think it is here."
             $ searched_kitchen = True
