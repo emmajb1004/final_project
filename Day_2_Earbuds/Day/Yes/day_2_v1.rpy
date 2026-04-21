@@ -30,7 +30,7 @@ label day_2_v1:
     label day_2_search_v1:
         if searched_bedroom and searched_living_room and searched_kitchen:
             Amy "I've searched anywhere. I don't understand. My head hurts. I just need to call it a day. And paint."
-            jump day_2_AI_v1
+            jump night_2_v1
         scene hallway
         Amy "Where should I search?"
         
@@ -125,10 +125,3 @@ label day_2_v1:
                 "Leave Room":
                     Amy "Maybe I'll look somewhere else."
                     jump day_2_search_v1
-
-label day_2_AI_v1:
-    scene background
-    """
-    Show AIMEE trying to listen to music on the floor.
-    """
-    jump night_2_v1

@@ -14,7 +14,7 @@ label day_3_v1:
     
     label day_3_menu_v1:
         if action_one and action_two and action_three:
-            jump day_3_AI_v1       
+            jump night_3_v1      
 
         menu:
             "go to kitchen" if not action_one:
@@ -34,10 +34,3 @@ label day_3_v1:
                 Amy "I think I just need to lay down and..."
                 $ action_three = True
                 jump day_3_menu_v1
-
-label day_3_AI_v1:
-    scene background
-    """
-    Show AIMEE watching show on tv that is against back wall.
-    """
-    jump night_3_v1

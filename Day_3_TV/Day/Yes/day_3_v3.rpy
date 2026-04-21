@@ -16,7 +16,7 @@ label day_3_v3:
     
     label day_3_menu_v3:
         if laptop and phone and wifi:
-            jump night_3_AI_v3      
+            jump night_3_v3      
 
         menu:
             "get laptop" if not laptop:
@@ -36,10 +36,3 @@ label day_3_v3:
                 Amy "The wifi is fine. I don't get it. I think I just need a minute. My head hurts."
                 $ wifi = True
                 jump day_3_menu_v3
-
-label night_3_AI_v3:
-    scene background
-    """
-    Show AIMEE watching show on tv that is against back wall.
-    """
-    jump night_3_v3

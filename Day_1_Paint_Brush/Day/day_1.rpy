@@ -30,7 +30,7 @@ label day_1:
     label day_1_search:
         if searched_studio and searched_bathroom and searched_kitchen:
             Amy "Hmm. I don't know. I've searched everywhere. Maybe it'll turn up later."
-            jump day_1_AI
+            jump night_1
             scene hallway
         Amy "Where should I look?"
     
@@ -128,7 +128,6 @@ label day_1:
 label day_1_AI:
     scene background
     show paint_brush
-    """
-    Show AIMEE looking at paintbrush on the floor.
-    """
+    show aimee
+    AI "..."
     jump night_1
