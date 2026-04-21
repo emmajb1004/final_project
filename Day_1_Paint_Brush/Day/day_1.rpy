@@ -1,3 +1,97 @@
+# define hover effect
+transform item_hover:
+    on hover:
+        matrixcolor BrightnessMatrix(0.2)
+    on idle:
+        matrixcolor BrightnessMatrix(0.0)
+
+screen studio_screen():
+    # Ball of Yarn
+    if not searched_yarn:
+        imagebutton:
+            idle "yarn"
+            at item_hover, Transform(zoom=0.4) # Adjust zoom based on your asset size
+            xpos 0.4 ypos 0.95 anchor (0.5, 1.0) # Using bottom anchor so it sits on a shelf/floor
+            action Jump("clicked_yarn")
+
+    # Picture of my Work (The 'Art' asset)
+    if not searched_work:
+        imagebutton:
+            idle "art"
+            at item_hover, Transform(zoom=0.35) # Adjust zoom based on your asset size
+            xpos 0.19 ypos 0.27 anchor (0.5, 0.5) # Using center anchor for a wall-hung picture
+            action Jump("clicked_work")
+
+    # Picture with Dad (The 'Childart' asset)
+    if not searched_dad:
+        imagebutton:
+            idle "childart"
+            at item_hover, Transform(zoom=0.3)
+            xpos 0.75 ypos 0.165 anchor (0.5, 0.5) 
+            action Jump("clicked_dad")
+
+    textbutton "Leave Room":
+        align (0.95, 0.05)
+        action Jump("leave_studio")
+
+# This is the "Investigation Mode" UI for the bathroom
+screen bathroom_screen():
+    # Only show the button if it hasn't been searched yet
+    if not searched_towel:
+        imagebutton:
+            idle "towel" 
+            at item_hover, Transform(zoom=0.6)
+            xpos 0.65 ypos 0.93 anchor (0.5, 0.1) 
+            action Jump("clicked_towel")
+
+    if not searched_hand_soap:
+        imagebutton:
+            idle "handsoap"
+            at item_hover, Transform(zoom=0.3)
+            xpos 0.23 ypos 0.62 anchor (0.5, 1.0)
+            action Jump("clicked_hand_soap")
+
+    if not searched_body_wash:
+        imagebutton:
+            idle "bodywash"
+            at item_hover, Transform(zoom=0.2)
+            xpos 0.6 ypos 0.78 anchor (0.5, 1.0)
+            action Jump("clicked_body_wash")
+
+    # A way to exit the screen
+    textbutton "Leave Room":
+        align (0.95, 0.05)
+        action Jump("leave_bathroom")
+
+screen kitchen_screen():
+    # Magnet of Friends
+    if not searched_magnet:
+        imagebutton:
+            idle "magnet"
+            at item_hover, Transform(zoom=0.2)
+            xpos 0.35 ypos 0.4 anchor (0.5, 0.5) # Center anchor for the fridge surface
+            action Jump("clicked_magnet")
+
+    # Bag of Popcorn (You called it popcorn in variables, using 'pan' for the asset)
+    if not searched_pan:
+        imagebutton:
+            idle "pan"
+            at item_hover, Transform(zoom=0.4)
+            xpos 0.73 ypos 0.6 anchor (0.5, 1.0) # Bottom anchor to sit on the stove/counter
+            action Jump("clicked_pan")
+
+    # Empty Dish Rack (Using 'mug' for the asset)
+    if not searched_mug:
+        imagebutton:
+            idle "mug"
+            at item_hover, Transform(zoom=0.4)
+            xpos 0.42 ypos 0.58 anchor (0.5, 1.0) # Bottom anchor to sit on the rack
+            action Jump("clicked_mug")
+
+    textbutton "Leave Room":
+        align (0.95, 0.05)
+        action Jump("leave_kitchen")
+
 label day_1:
 
     # bedroom variables
@@ -15,8 +109,8 @@ label day_1:
     # kitchen variables
     $ items_searched_kitchen = 0
     $ searched_magnet = False
-    $ searched_popcorn = False
-    $ searched_dish_rack = False
+    $ searched_pan = False
+    $ searched_mug = False
 
     # menu variables
     $ searched_studio = False
@@ -31,7 +125,8 @@ label day_1:
         if searched_studio and searched_bathroom and searched_kitchen:
             Amy "Hmm. I don't know. I've searched everywhere. Maybe it'll turn up later."
             jump night_1
-            scene hallway
+            
+        scene hallway
         Amy "Where should I look?"
     
     menu:
@@ -52,52 +147,64 @@ label day_1:
             Amy "Can't find it here."
             $ searched_studio = True
             jump day_1_search  
-        menu:
-            "ball of yarn" if not searched_yarn:
-                Amy "I have tried over many years to try and get into knitting and I just can’t do it. Not because I don’t like it or anything, I just am genuinely so awful at it."
-                $ searched_yarn = True
-                $ items_searched_studio += 1
-                jump day_1_studio_search_loop # This keeps Amy in the room
-            "picture of my work" if not searched_work:
-                Amy "This is the first piece where I genuinely felt proud. It's hard to fully feel great about your own work all the time, but this one I really like."
-                $ searched_work = True
-                $ items_searched_studio += 1
-                jump day_1_studio_search_loop # This keeps Amy in the room
-            "picture of my dad" if not searched_dad:
-                Amy "I learned to paint from my dad. Working with him on my assignments for art class was my favorite part of high school."
-                $ searched_dad = True
-                $ items_searched_studio += 1
-                jump day_1_studio_search_loop # This keeps Amy in the room
-            "Leave Room":
-                Amy "Maybe I'll look somewhere else."
-                jump day_1_search
+        
+        # This activates the clickable studio images
+        call screen studio_screen
+
+    label clicked_yarn:
+        Amy "I have tried over many years to try and get into knitting and I just can’t do it. Not because I don’t like it or anything, I just am genuinely so awful at it."
+        $ searched_yarn = True
+        $ items_searched_studio += 1
+        jump day_1_studio_search_loop
+
+    label clicked_work:
+        Amy "This is the first piece where I genuinely felt proud. It's hard to fully feel great about your own work all the time, but this one I really like."
+        $ searched_work = True
+        $ items_searched_studio += 1
+        jump day_1_studio_search_loop
+
+    label clicked_dad:
+        Amy "I learned to paint from my dad. Working with him on my assignments for art class was my favorite part of high school."
+        $ searched_dad = True
+        $ items_searched_studio += 1
+        jump day_1_studio_search_loop
+
+    label leave_studio:
+        Amy "Maybe I'll look somewhere else."
+        jump day_1_search
 
     label day_1_bathroom_search_loop:
         scene bathroom with dissolve
+
         # check if room has been searched
         if items_searched_bathroom == 3:
             Amy "I guess it's not here."
             $ searched_bathroom = True
             jump day_1_search
-        menu:  
-            "paint stained towel" if not searched_towel:
-                Amy "Unintended tie dye. I have a hard time not staining towels with paint."   
-                $ searched_towel = True
-                $ items_searched_bathroom += 1
-                jump day_1_bathroom_search_loop # This keeps Amy in the room
-            "bottle of hand soap" if not searched_hand_soap:
-                Amy "I like getting the fun hand soaps. This one is called carnival"
-                $ searched_hand_soap = True
-                $ items_searched_bathroom += 1
-                jump day_1_bathroom_search_loop # This keeps Amy in the room
-            "Bottle of body wash" if not searched_body_wash:
-                Amy "This is my splurge body wash. The absolute best smell but it costs $8 a bottle."
-                $ searched_body_wash = True
-                $ items_searched_bathroom += 1
-                jump day_1_bathroom_search_loop # This keeps Amy in the room
-            "Leave Room":
-                Amy "Maybe I'll look somewhere else."
-                jump day_1_search
+
+        call screen bathroom_screen
+
+    label clicked_towel:
+        Amy "Unintended tie dye. I have a hard time not staining towels with paint."
+        $ searched_towel = True
+        $ items_searched_bathroom += 1
+        jump day_1_bathroom_search_loop
+
+    label clicked_hand_soap:
+        Amy "I like getting the fun hand soaps. This one is called carnival."
+        $ searched_hand_soap = True
+        $ items_searched_bathroom += 1
+        jump day_1_bathroom_search_loop
+
+    label clicked_body_wash:
+        Amy "This is my splurge body wash. The absolute best smell but it costs $8 a bottle."
+        $ searched_body_wash = True
+        $ items_searched_bathroom += 1
+        jump day_1_bathroom_search_loop
+
+    label leave_bathroom:
+        Amy "Maybe I'll look somewhere else."
+        jump day_1_search
 
     label day_1_kitchen_search_loop:
         scene kitchen with dissolve
@@ -105,29 +212,34 @@ label day_1:
             Amy "I don't think it is here."
             $ searched_kitchen = True
             jump day_1_search
-        menu:
-            "magnet of friends" if not searched_magnet:
-                Amy "A magnet from the annual secret santa from my childhood friend group. It’s a collage of photos of us throughout the years."
-                $ searched_magnet = True
-                $ items_searched_kitchen += 1
-                jump day_1_kitchen_search_loop # This keeps Amy in the room
-            "bag of popcorn kernels" if not searched_popcorn:
-                Amy "I had an old roommate that I would make elaborate popcorn flavors for. I haven’t made them for myself in a while but I am always prepared for when she visits."
-                $ searched_popcorn = True
-                $ items_searched_kitchen += 1
-                jump day_1_kitchen_search_loop # This keeps Amy in the room
-            "empty dish rack" if not searched_dish_rack:
-                Amy "I used to be on dishes at an old ice cream shop job and it was instilled in me to never put wet dishes on top of dry ones. It’s the one part of my house that I am the most organized about."
-                $ searched_dish_rack = True
-                $ items_searched_kitchen += 1
-                jump day_1_kitchen_search_loop # This keeps Amy in the room
-            "Leave Room":
-                Amy "Maybe I'll look somewhere else."
-                jump day_1_search
+        # This activates the clickable kitchen images
+        call screen kitchen_screen 
 
-label day_1_AI:
-    scene background
-    show paint_brush
-    show aimee
-    AI "..."
-    jump night_1
+    label clicked_magnet:
+        Amy "A magnet from the annual secret santa from my childhood friend group. It’s a collage of photos of us throughout the years."
+        $ searched_magnet = True
+        $ items_searched_kitchen += 1
+        jump day_1_kitchen_search_loop
+
+    label clicked_pan:
+        Amy "I bought this pan specifically to make cheesecake because I love it so much. "
+        $ searched_pan = True
+        $ items_searched_kitchen += 1
+        jump day_1_kitchen_search_loop
+
+    label clicked_mug:
+        Amy "I got this mug from volunteering at the New York Film Festival when I was a teenager."
+        $ searched_mug = True
+        $ items_searched_kitchen += 1
+        jump day_1_kitchen_search_loop
+
+    label leave_kitchen:
+        Amy "Maybe I'll look somewhere else."
+        jump day_1_search
+
+    label day_1_AI:
+        scene background
+        show paint_brush
+        show aimee
+        AI "..."
+        jump night_1

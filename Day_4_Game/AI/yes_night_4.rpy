@@ -1,5 +1,5 @@
 label night_4_AI_yes:
-    scene background
+    scene background with pixellate
     """
     Show AIMEE listening with controller.
     """

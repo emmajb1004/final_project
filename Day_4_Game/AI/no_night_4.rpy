@@ -1,5 +1,5 @@
 label night_4_AI_no:
-    scene background
+    scene background with pixellate
     """
     Show AIMEE watching show on tv that is against back wall.
     """

@@ -1,6 +1,5 @@
 label night_2_AI_yes:
     scene background
-    """
-    Show AIMEE trying to listen to music on the floor.
-    """
+    show aimeefloor at Transform(zoom=1.3)
+    AI "...?"
     jump sing_menu
