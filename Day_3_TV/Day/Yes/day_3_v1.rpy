@@ -1,16 +1,22 @@
-label day_3_v1:
-    """
-    {i}Show scene of Amy in living room, grey, wathcing static on TV.
-    A.I.MEE is watching a scene from a movie and learning human behavior{/i}
-    """
+define flash = Fade(0.1, 0.0, 0.5, color="#fff")
 
+screen kitchen_day3():
+    imagebutton:
+        idle "water"
+        at item_hover, Transform(zoom=0.3)
+        xpos 0.42 ypos 0.59 anchor (0.5, 1.0)
+        action Jump("clicked_glass_day3")
+
+label day_3_v1:
     $ action_one = False
     $ action_two = False
     $ action_three = False
 
     label day_3_intro_v1:
         scene living_room
-        Amy "I don't know what's wrong with me. It's just static. Everything is static."
+        Amy "I feel so out of it today. I think I just need to relax and watch something."
+        "Play clip of messed up, AI movie"
+        Amy "I don't understand what is going on. What's wrong with me? I'm going to get some water."
     
     label day_3_menu_v1:
         if action_one and action_two and action_three:
@@ -24,13 +30,26 @@ label day_3_v1:
                 jump day_3_menu_v1
         menu:
             "go get a glass of water" if not action_two:
-                scene kitchen with pixellate
-                Amy "I .. I don't understand. What's wrong with my hand? What's going on?"
-                $ action_two = True
-                jump day_3_menu_v1
+                jump day_3_kitchen_loop
         menu:
             "try to lay down" if not action_three:
                 scene living_room with pixellate
                 Amy "I think I just need to lay down and..."
                 $ action_three = True
                 jump day_3_menu_v1
+
+# kitchen loop
+    label day_3_kitchen_loop:
+        scene kitchen with dissolve
+        call screen kitchen_day3
+
+    label clicked_glass_day3:
+        # Show the messed up AI hand asset
+        show ai_hand at center with flash
+        with hpunch
+        
+        Amy "I .. I don't understand. What's wrong with my hand? What's going on?"
+        
+        hide ai_hand with dissolve
+        $ action_two = True
+        jump day_3_menu_v1

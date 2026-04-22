@@ -10,19 +10,19 @@ screen studio_screen():
     if not searched_yarn:
         imagebutton:
             idle "yarn"
-            at item_hover, Transform(zoom=0.4) # Adjust zoom based on your asset size
-            xpos 0.4 ypos 0.95 anchor (0.5, 1.0) # Using bottom anchor so it sits on a shelf/floor
+            at item_hover, Transform(zoom=0.4)
+            xpos 0.4 ypos 0.95 anchor (0.5, 1.0)
             action Jump("clicked_yarn")
 
-    # Picture of my Work (The 'Art' asset)
+    # Picture of my Work
     if not searched_work:
         imagebutton:
             idle "art"
-            at item_hover, Transform(zoom=0.35) # Adjust zoom based on your asset size
-            xpos 0.19 ypos 0.27 anchor (0.5, 0.5) # Using center anchor for a wall-hung picture
+            at item_hover, Transform(zoom=0.35) 
+            xpos 0.19 ypos 0.27 anchor (0.5, 0.5)
             action Jump("clicked_work")
 
-    # Picture with Dad (The 'Childart' asset)
+    # Picture of child's art
     if not searched_dad:
         imagebutton:
             idle "childart"
@@ -40,7 +40,7 @@ screen studio_screen():
 
 # This is the "Investigation Mode" UI for the bathroom
 screen bathroom_screen():
-    # Only show the button if it hasn't been searched yet
+    # Only show the asset if it hasn't been searched yet
     if not searched_towel:
         imagebutton:
             idle "towel" 
@@ -62,7 +62,7 @@ screen bathroom_screen():
             xpos 0.6 ypos 0.78 anchor (0.5, 1.0)
             action Jump("clicked_body_wash")
 
-    # A way to exit the screen
+    # A way to exit the room
     textbutton "Leave Room":
         align (0.01, 0.05) 
         text_color "#ffffff"
@@ -77,23 +77,23 @@ screen kitchen_screen():
         imagebutton:
             idle "magnet"
             at item_hover, Transform(zoom=0.2)
-            xpos 0.35 ypos 0.4 anchor (0.5, 0.5) # Center anchor for the fridge surface
+            xpos 0.35 ypos 0.4 anchor (0.5, 0.5) 
             action Jump("clicked_magnet")
 
-    # Bag of Popcorn (You called it popcorn in variables, using 'pan' for the asset)
+    # Springform pan
     if not searched_pan:
         imagebutton:
             idle "pan"
             at item_hover, Transform(zoom=0.4)
-            xpos 0.73 ypos 0.6 anchor (0.5, 1.0) # Bottom anchor to sit on the stove/counter
+            xpos 0.73 ypos 0.6 anchor (0.5, 1.0)
             action Jump("clicked_pan")
 
-    # Empty Dish Rack (Using 'mug' for the asset)
+    # Mug
     if not searched_mug:
         imagebutton:
             idle "mug"
             at item_hover, Transform(zoom=0.4)
-            xpos 0.42 ypos 0.58 anchor (0.5, 1.0) # Bottom anchor to sit on the rack
+            xpos 0.42 ypos 0.58 anchor (0.5, 1.0)
             action Jump("clicked_mug")
 
     textbutton "Leave Room":

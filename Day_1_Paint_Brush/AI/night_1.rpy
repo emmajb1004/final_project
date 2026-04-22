@@ -10,7 +10,6 @@ label night_1_AI:
     scene background with pixellate
     show aimee at Position(xpos=0.6, ypos=0.45, anchor=(0.5, 0.1))
     
-    # This calls the screen and waits for the user to click the brush
     call screen paintbrush_screen
 
 label clicked_paintbrush:

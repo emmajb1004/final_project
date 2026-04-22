@@ -1,4 +1,4 @@
-# --- DAY 2 SCREENS ---
+# Day 2 screens
 screen bedroom_day2():
     if not searched_mask:
         imagebutton:
@@ -71,7 +71,7 @@ screen kitchen_day2():
             xpos 0.42 ypos 0.58 anchor (0.5, 1.0)
             action Jump("clicked_bad_mug")
 
-    if not searched_holder_pan:
+    if not searched_bad_pan:
         imagebutton:
             idle "bad_pan"
             at item_hover, Transform(zoom=0.35)
@@ -166,7 +166,7 @@ label day_2_v1:
         Amy "Maybe I'll look somewhere else."
         jump day_2_search_v1
 
-    # --- LIVING ROOM LOOP ---
+    # living room loop
     label day_2_living_room_loop:
         if items_searched_living_room == 3:
             Amy "Can't find them anywhere here."
@@ -199,7 +199,7 @@ label day_2_v1:
         Amy "Maybe I should try another room."
         jump day_2_search_v1
 
-    # --- KITCHEN LOOP ---
+    # kitchen loop
     label day_2_kitchen_loop:
         if items_searched_kitchen == 3:
             Amy "I feel really uncomfortable in this room. I need to leave."
