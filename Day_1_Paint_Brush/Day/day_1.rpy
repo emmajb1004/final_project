@@ -131,7 +131,7 @@ label day_1:
 
     label day_1_intro:
         scene hallway
-        Amy "I can't find my paint brush anywhere. I know I have lots of paint brushes I could use but it annoys me I can't find this specific one."
+        Amy "I can't find one of my paint brushes anywhere. I've had it since I was a kid."
 
     label day_1_search:
         if searched_studio and searched_bathroom and searched_kitchen:
@@ -153,14 +153,14 @@ label day_1:
             jump day_1_kitchen_search_loop
 
     label day_1_studio_search_loop:
-        scene studio with dissolve
-        show happy at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.9)
         # check if room has been searched
         if items_searched_studio == 3:
             Amy "Can't find it here."
             $ searched_studio = True
             jump day_1_search  
         
+        scene studio with dissolve
+        show happy at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.9)
         # This activates the clickable studio images
         call screen studio_screen
 
@@ -177,7 +177,7 @@ label day_1:
         jump day_1_studio_search_loop
 
     label clicked_dad:
-        Amy "I learned to paint from my dad. Working with him on my assignments for art class was my favorite part of high school."
+        Amy "One of my first from when I was a kid. Painted it with my dad. I love painting with him."
         $ searched_dad = True
         $ items_searched_studio += 1
         jump day_1_studio_search_loop

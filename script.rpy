@@ -14,16 +14,15 @@ default play_game = True
 # The game starts here.
 
 label start:
-    scene grey1
+    scene grey1 with pixellate
     "Would you like to query the machine?"
 
     menu:
         "Yes":
-            "{i}Show starting scene{/i}"
             jump day_1
 
 label paint_menu:
-    scene grey2
+    scene grey2 with pixellate
     "Would you like A.I.MEE to try and paint you a picture?"
 
     menu:
@@ -37,7 +36,7 @@ label paint_menu:
             jump day_2_v2
 
 label sing_menu:
-    scene grey3
+    scene grey3 with pixellate
     "Would you like A.I.MEE to try and sing you a song?"
 
     menu:
@@ -57,7 +56,7 @@ label sing_menu:
                 jump day_3_v4
 
 label movie_menu:
-    scene grey4
+    scene grey4 with pixellate
     "Would you like A.I.MEE to try and make you a movie?"
 
     menu:
@@ -85,7 +84,7 @@ label movie_menu:
                 jump day_4_v8
 
 label game_query_menu:
-    scene grey5
+    scene grey5 with pixellate
     if queried < 2:
         $ play_game = False
     else:
