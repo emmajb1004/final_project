@@ -1,3 +1,4 @@
+define audio.sweetheart = "sweethearthuman.mp3"
 screen earbuds_screen():
     imagebutton:
         idle "earbuds"
@@ -13,5 +14,6 @@ label night_2_AI_yes:
     call screen earbuds_screen
 
 label clicked_earbuds:
+    play sound sweetheart volume 3.0
     AI "...?"
     jump sing_menu

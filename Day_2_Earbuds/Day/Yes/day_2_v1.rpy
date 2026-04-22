@@ -84,6 +84,12 @@ screen kitchen_day2():
         text_outlines [(3, "#000", 0, 0)]
         action Jump("leave_kitchen_day_2")
 
+# music variables
+define audio.sweetheart_clip1 = "<from 11>sweetheartAI.mp3"
+define audio.sweetheart_clip2 = "<from 21>sweetheartAI.mp3"
+define audio.sweetheart_clip3 = "<from 31>sweetheartAI.mp3"
+define audio.sweetheart_clip4 = "<from 41>sweetheartAI.mp3"
+
 label day_2_v1:
 
     # bedroom variables
@@ -110,35 +116,26 @@ label day_2_v1:
     $ searched_kitchen = False
 
     label day_2_intro_v1:
-        scene hallway
-        #play music "audio/sweetheart_suno.mp3" fadein 2.0
-        "Play song snippet"
+        scene hallway with pixellate
+        play sound sweetheart_clip1
+        pause 9.0
+        stop sound
         Amy "What is that? It sounds like this old song my mom used to sing to me. Where is it coming from?"
-    
-    label day_2_search_v1:
-        if searched_bedroom and searched_living_room and searched_kitchen:
-            Amy "I've searched anywhere. I don't understand. My head hurts. I just need to call it a day. And paint."
-            jump night_2_v1
         
-        scene hallway with dissolve
-        Amy "Where should I search?"
-        
-        menu:
-            "bedroom" if not searched_bedroom:
-                Amy "Let me try searching my room."
-                jump day_2_bedroom_loop
-            "living room" if not searched_living_room:
-                Amy "Let me see if they are in the living room."
-                jump day_2_living_room_loop
-            "kitchen" if not searched_kitchen:
-                Amy "Maybe they are in the kitchen"
-                jump day_2_kitchen_loop
+    menu:
+        "Search Bedroom":
+            Amy "Let me see if it's coming from my room."
+            jump day_2_bedroom_loop 
 
     label day_2_bedroom_loop:
         if items_searched_bedroom == 3:
-            Amy "Hmm I guess they aren't in here."
+            Amy "Hmm I guess it isn't coming from here."
+            scene hallway with dissolve
+            play sound sweetheart_clip2
+            pause 9.0
+            stop sound
             $ searched_bedroom = True
-            jump day_2_search_v1
+            jump day_2_living_room_loop_menu
 
         scene master_bedroom with dissolve
         show concerned2 at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.8)
@@ -161,17 +158,24 @@ label day_2_v1:
         $ searched_fan = True
         $ items_searched_bedroom += 1
         jump day_2_bedroom_loop
-
-    label leave_bedroom_day_2:
-        Amy "Maybe I'll look somewhere else."
-        jump day_2_search_v1
+    
+    label day_2_living_room_loop_menu:
+        Amy "What is that..."
+        menu:
+            "Search Living Room":
+                Amy "Maybe it's coming from the living room."
+                jump day_2_living_room_loop 
 
     # living room loop
     label day_2_living_room_loop:
         if items_searched_living_room == 3:
-            Amy "Can't find them anywhere here."
+            Amy "Not from here I guess."
             $ searched_living_room = True
-            jump day_2_search_v1
+            scene hallway with dissolve
+            play sound sweetheart_clip3
+            pause 10.0
+            stop sound
+            jump day_2_kitchen_loop_menu
         
         scene living_room with dissolve
         show concerned2 at Transform (xpos=0.9, ypos=.55, anchor=(0.5,0.5),zoom=0.8)
@@ -194,17 +198,24 @@ label day_2_v1:
         $ searched_console = True
         $ items_searched_living_room += 1
         jump day_2_living_room_loop
-
-    label leave_living_room_day_2:
-        Amy "Maybe I should try another room."
-        jump day_2_search_v1
+    
+    label day_2_kitchen_loop_menu:
+        Amy "I have to find where it's coming from."
+        menu:
+            "Search Kitchen":
+                Amy "I'll check the kitchen."
+                jump day_2_kitchen_loop 
 
     # kitchen loop
     label day_2_kitchen_loop:
         if items_searched_kitchen == 3:
             Amy "I feel really uncomfortable in this room. I need to leave."
             $ searched_kitchen = True
-            jump day_2_search_v1
+            scene hallway with dissolve
+            play sound sweetheart_clip4
+            pause 11.5
+            stop sound fadeout 1.0
+            jump day_2_end
         
         scene kitchen with dissolve
         show concerned2 at Transform (xpos=0.92, ypos=.63, anchor=(0.5,0.5),zoom=0.7)
@@ -227,7 +238,8 @@ label day_2_v1:
         $ searched_bad_pan = True
         $ items_searched_kitchen += 1
         jump day_2_kitchen_loop
+    
+    label day_2_end:
+        Amy "I've searched everywhere. I don't understand. My head hurts. I just need to call it a day. And paint."
+        jump night_2_v1
 
-    label leave_kitchen_day_2:
-        Amy "Let me try somewhere else."
-        jump day_2_search_v1
