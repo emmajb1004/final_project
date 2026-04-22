@@ -1,9 +1,4 @@
 label day_4_v7:
-    """
-    {i}Show scene of Amy in living room, grey, wathcing static on TV.
-    A.I.MEE is watching a scene from a movie and learning human behavior{/i}
-    """
-
     $ water = False
     $ game = False
     $ laydown = False
@@ -14,7 +9,7 @@ label day_4_v7:
     
     label day_4_menu_v7:
         if water and game and laydown:
-            jump day_4_AI_v7       
+            jump night_4_v7       
 
         menu:
             "get a glass of water" if not water:
@@ -34,10 +29,3 @@ label day_4_v7:
                 Amy "I feel a bit off. I think I just need a minute to rest."
                 $ laydown = True
                 jump day_4_menu_v7
-
-label day_4_AI_v7:
-    scene background
-    """
-    Show AIMEE watching show on tv that is against back wall.
-    """
-    jump night_4_v7
