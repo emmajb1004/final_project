@@ -60,6 +60,7 @@ label day_3_v1:
         # Show the messed up AI hand asset
         show ai_hand at center with flash
         with hpunch
+        pause 2.0
         
         Amy "I .. I don't understand. What's wrong with my hand? What's going on?"
         
