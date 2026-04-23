@@ -21,13 +21,6 @@ screen bedroom_day2():
             xpos 0.8 ypos 0.62 anchor (0.5, 1.0)
             action Jump("clicked_fan")
 
-    textbutton "Leave Room":
-        align (0.05, 0.05)
-        text_color "#ffffff"
-        text_hover_color "#ccff00"
-        text_outlines [(3, "#000", 0, 0)]
-        action Jump("leave_bedroom_day_2")
-
 screen living_room_day2():
     if not searched_record:
         imagebutton:
@@ -50,12 +43,6 @@ screen living_room_day2():
             xpos 0.12 ypos 0.6 anchor (0.5, 0.5)
             action Jump("clicked_console")
 
-    textbutton "Leave Room":
-        align (0.05, 0.05)
-        text_color "#ffffff"
-        text_outlines [(3, "#000", 0, 0)]
-        action Jump("leave_living_room_day_2")
-
 screen kitchen_day2():
     if not searched_magnet:
         imagebutton:
@@ -77,12 +64,6 @@ screen kitchen_day2():
             at item_hover, Transform(zoom=0.35)
             xpos 0.715 ypos 0.57 anchor (0.5, 1.0)
             action Jump("clicked_bad_pan")
-
-    textbutton "Leave Room":
-        align (0.05, 0.05)
-        text_color "#ffffff"
-        text_outlines [(3, "#000", 0, 0)]
-        action Jump("leave_kitchen_day_2")
 
 # music variables
 define audio.sweetheart_clip1 = "<from 11>sweetheartAI.mp3"

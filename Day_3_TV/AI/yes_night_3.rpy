@@ -24,7 +24,7 @@ label night_3_AI_yes:
 label clicked_movie:
     show aimeemovie:
         xpos 0.5 ypos 0.4 anchor (0.5, 0.5)
-    pause 9.0
+    pause 10.0
     hide aimeemovie with Dissolve(0.2)
     jump finish_day_3_v1
 
