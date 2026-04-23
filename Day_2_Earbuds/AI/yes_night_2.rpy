@@ -14,6 +14,6 @@ label night_2_AI_yes:
     call screen earbuds_screen
 
 label clicked_earbuds:
-    play sound sweetheart volume 3.0
+    play sound sweetheart volume 2.0
     AI "...?"
     jump sing_menu

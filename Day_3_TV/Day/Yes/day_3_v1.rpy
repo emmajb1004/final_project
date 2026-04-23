@@ -1,4 +1,12 @@
 define flash = Fade(0.1, 0.0, 0.5, color="#fff")
+image bad_movie = Movie(play="images/zombiebad.webm", channel="movie", loop=False)
+
+screen remote_screen():
+    imagebutton:
+        idle "remote"
+        at item_hover, Transform(zoom=0.2) 
+        xpos 0.45 ypos 0.68 anchor (0.5, 0.5)
+        action Return()
 
 screen kitchen_day3():
     imagebutton:
@@ -15,8 +23,13 @@ label day_3_v1:
     label day_3_intro_v1:
         scene living_room
         Amy "I feel so out of it today. I think I just need to relax and watch something."
-        "Play clip of messed up, AI movie"
-        Amy "I don't understand what is going on. What's wrong with me? I'm going to get some water."
+        "~Click the black remote to turn on the TV~"
+        call screen remote_screen
+        scene bad_movie with dissolve
+        pause 14.0
+        scene living_room with dissolve
+        Amy "I don't understand what is going on. What was that? Why does my head hurt so much?"
+        Amy "I think I need some water."
     
     label day_3_menu_v1:
         if action_one and action_two and action_three:
@@ -40,7 +53,7 @@ label day_3_v1:
 
 # kitchen loop
     label day_3_kitchen_loop:
-        scene kitchen with dissolve
+        scene kitchen with pixellate
         call screen kitchen_day3
 
     label clicked_glass_day3:
