@@ -101,7 +101,8 @@ label day_2_v1:
         play sound sweetheart_clip1
         pause 9.0
         stop sound
-        Amy "What is that? It sounds like this old song my mom used to sing to me. Where is it coming from?"
+        Amy "What is that? It sounds like this old song my mom used to sing to me. But it sounds off..."
+        Amy "Where is it coming from?"
         
     menu:
         "Search Bedroom":

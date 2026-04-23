@@ -1,6 +1,6 @@
-image movie_clip1 = Movie(play="images/zombiebad.webm", channel="movie", loop=False)
-image movie_clip2 = Movie(play="images/zombiebad.webm", channel="movie", loop=False)
-image movie_clip3 = Movie(play="images/zombiebad.webm", channel="movie", loop=False)
+image movie_clip1 = Movie(play="images/zombieinsert1.webm", loop=False)
+image movie_clip2 = Movie(play="images/zombieinsert2.webm", loop=False)
+image movie_clip3 = Movie(play="images/zombieinsert3.webm", channel="movie", loop=False)
 
 screen remote_day_3_v3():
     # Remote
@@ -14,16 +14,16 @@ screen laptop_day_3_v3:
     # Laptop
         imagebutton:
             idle "laptop"
-            at item_hover, Transform(zoom=0.6)
-            xpos 0.3 ypos 0.6 anchor (0.5, 0.5)
+            at item_hover, Transform(zoom=0.1)
+            xpos 0.55 ypos 0.75 anchor (0.5, 1.0)
             action Jump("clicked_laptop")
 
 screen phone_day_3_v3:
     # Phone
         imagebutton:
             idle "phone"
-            at item_hover, Transform(zoom=0.3)
-            xpos 0.45 ypos 0.75 anchor (0.5, 0.5)
+            at item_hover, Transform(zoom=0.2)
+            xpos 0.36 ypos 0.61 anchor (0.5, 0.5)
             action Jump("clicked_phone")
 
 label day_3_v3:
@@ -32,11 +32,12 @@ label day_3_v3:
 
     label day_3_intro_v3:
         scene living_room
-        Amy "My head hurts. I just want to laydown and watch something."
+        Amy "My head hurts. I think I just want to laydown and watch something."
         "~click black remote to watch something~"
         call screen remote_day_3_v3
         scene movie_clip1 with dissolve
-        pause 14.0
+        pause 5.5
+        scene living_room with dissolve
         Amy "Why... why is it like that?"
         Amy "Let me... try my laptop."
 
@@ -53,12 +54,15 @@ label day_3_v3:
 
     label loop_laptop:
         scene master_bedroom with pixellate
-        call screen laptop_day_3_v3
+        show laptop:
+            xpos 0.55 ypos 0.75 anchor (0.5, 1.0) zoom 0.1
         Amy "Here it is"
+        call screen laptop_day_3_v3
 
     label clicked_laptop:
-        scene movie_clip2 with dissolve
-        pause 14.0
+        show movie_clip2 with dissolve
+        pause 5.0
+        scene master_bedroom with dissolve
         Amy "What's going on?"
         Amy "I... I'll check my phone."
         $ laptop = True
@@ -70,9 +74,10 @@ label day_3_v3:
         call screen phone_day_3_v3
 
     label clicked_phone:
-        scene movie_clip1 with dissolve
-        pause 14.0
-        Amy "It's not working. I don't understand what is happening?" 
-        Amy "My head... is killing me."
+        scene movie_clip3 with dissolve
+        pause 4.0
+        scene living_room with dissolve
+        Amy "What is that? I don't understand what's happening?" 
+        Amy "And my head... is killing me."
         $ phone = True
         jump day_3_menu_v3
