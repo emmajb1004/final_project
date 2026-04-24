@@ -9,14 +9,15 @@ screen remote_day_3_v2():
 
 label day_3_v2:
     scene living_room
-    Amy "I woke up with such a weird headache today. I don't know why."
-    Amy "Maybe I should just try to relax and watch something."
+    Amy "I feel a little bit better from yesterday."
+    Amy "Maybe I should try to watch something."
     "~click black remote to watch something~"
     call screen remote_day_3_v2
     scene zombieconfused with dissolve
-    pause 10.5
+    pause 6.0
     scene living_room with dissolve
     pause 0.5
     Amy "That was... weird. What was that?"
-    Amy "My headache is getting worse. Maybe I just need to call it a day. And paint."
+    Amy "I don't know. Maybe my TV is acting up."
+    Amy "Oh well. I should probably just call it a day and get to painting."
     jump night_3_v2

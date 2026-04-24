@@ -32,7 +32,7 @@ label day_3_v3:
 
     label day_3_intro_v3:
         scene living_room
-        Amy "My head hurts. I think I just want to laydown and watch something."
+        Amy "My head hurts. I think I just want to lay down and watch something."
         "~click black remote to watch something~"
         call screen remote_day_3_v3
         scene movie_clip1 with dissolve
@@ -56,7 +56,7 @@ label day_3_v3:
         scene master_bedroom with pixellate
         show laptop:
             xpos 0.55 ypos 0.75 anchor (0.5, 1.0) zoom 0.1
-        Amy "Here it is"
+        Amy "Here it is. Hopefully this is better."
         call screen laptop_day_3_v3
 
     label clicked_laptop:
@@ -70,14 +70,14 @@ label day_3_v3:
 
     label loop_phone:
         scene living_room with pixellate
-        Amy "Maybe my phone still works..."
+        Amy "Maybe this will be fine..."
         call screen phone_day_3_v3
 
     label clicked_phone:
         scene movie_clip3 with dissolve
         pause 4.0
         scene living_room with dissolve
-        Amy "What is that? I don't understand what's happening?" 
+        Amy "What is that? I don't understand what's happening." 
         Amy "And my head... is killing me."
         $ phone = True
         jump day_3_menu_v3

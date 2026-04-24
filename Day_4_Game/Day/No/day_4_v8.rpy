@@ -1,8 +1,22 @@
+image good_game = Movie(play="images/goodgame.webm", loop=False)
+
+screen living_room_day4_v8():
+    imagebutton:
+        idle "controller"
+        at item_hover, Transform(zoom=0.3)
+        xpos 0.76 ypos 0.85 anchor (0.5, 1.0)
+        action Return()
+
 label day_4_v8:
     show living_room
     show gamehappy at Transform (xpos=0.92, ypos=.60, anchor=(0.5,0.5),zoom=1.0)
-    """
-    {i}Show Amy happily playing a game in her living room.
-    A.I.MEE is sitting against the back wall, waiting for a query{/i}
-    """
+    Amy "I want to play a game today!"
+    "~click controller to play game~"
+    call screen living_room_day4_v8
+    scene good_game with dissolve
+    pause 8.5
+    scene living_room with dissolve
+    show gamehappy at Transform (xpos=0.92, ypos=.60, anchor=(0.5,0.5),zoom=1.0)
+    Amy "I love games. Even simple platformers. Games were a huge bonding experience for me and my sibling growing up." 
+    Amy "We still talk about games together to this day."
     jump night_4_v8
