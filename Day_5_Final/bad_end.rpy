@@ -1,20 +1,18 @@
+screen door():
+    imagebutton:
+        idle "door"
+        at item_hover, Transform(zoom=0.5)
+        xpos 0.4 ypos 0.75 anchor (0.5, 1.0)
+        action Jump("open_door")
+
 label bad_end:
-    """
-    Amy is now in the grey void. She can’t
-    remember colors or music or movies or
-    games or who she is/her background.
-    There is no door to leave the house and
-    everything is gone except the paint
-    brush that started this off. But it is out of
-    her reach and she will never get it. She
-    is staring at you, waiting. A.I.MEE is in her
-    brighter room with music and a movie
-    etc and there is a door in the back. She
-    finally has her first action option of the
-    game which is to open the door. She
-    opens it. It opens to the outdoors but it
-    is the outdoors landscape painting that
-    Amy was painting. A.I.MEE now sees
-    color through it and a way out. She is
-    about to leave when the game ends.
-    """
+    scene background at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=1.2)
+    show escape at Transform(xpos=0.65,ypos=0.85,anchor=(0.5,1.0),zoom=0.5)
+    call screen door
+
+label open_door:
+        show door_open at Transform(xpos=0.43,ypos=0.8,anchor=(0.5,1.0),zoom=0.5)
+        AI "I feel..."
+        show escape_neutral at Transform(xpos=0.65,ypos=0.85,anchor=(0.5,1.0),zoom=0.5)
+        AI "Nothing."
+        return

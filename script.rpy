@@ -88,8 +88,10 @@ label game_query_menu:
     menu:
         "Okay":
             "You will play with Aimee"
+            jump bad_end
         "I don't want to play." if play_game == False:
             "You won't play with Aimee."
+            jump good_end
 
 label end_queried:
     """
