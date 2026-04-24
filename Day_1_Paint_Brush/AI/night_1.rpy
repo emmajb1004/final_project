@@ -9,10 +9,8 @@ screen paintbrush_screen():
 label night_1_AI:
     scene background with pixellate
     show aimee at Position(xpos=0.6, ypos=0.45, anchor=(0.5, 0.1))
-    
     call screen paintbrush_screen
 
 label clicked_paintbrush:
     AI "..."
-    
     jump paint_menu

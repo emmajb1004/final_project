@@ -1,10 +1,13 @@
-# define hover effect
+# define hover effect for clickable objects
 transform item_hover:
     on hover:
         matrixcolor BrightnessMatrix(0.2)
     on idle:
         matrixcolor BrightnessMatrix(0.0)
 
+# -- Set Screens (User Interface Container) --
+# art studio screens
+# Only show the asset if it hasn't been searched yet
 screen studio_screen():
     # Ball of Yarn
     if not searched_yarn:
@@ -14,7 +17,7 @@ screen studio_screen():
             xpos 0.4 ypos 0.95 anchor (0.5, 1.0)
             action Jump("clicked_yarn")
 
-    # Picture of my Work
+    # Picture of Amy's Work
     if not searched_work:
         imagebutton:
             idle "art"
@@ -30,6 +33,7 @@ screen studio_screen():
             xpos 0.75 ypos 0.165 anchor (0.5, 0.5) 
             action Jump("clicked_dad")
     
+    # option to leave room early
     textbutton "Leave Room":
         align (0.01, 0.05) 
         text_color "#ffffff"
@@ -38,9 +42,9 @@ screen studio_screen():
         text_bold True
         action Jump("leave_studio")
 
-# This is the "Investigation Mode" UI for the bathroom
+# art bathroom screens
+# Only show the asset if it hasn't been searched yet
 screen bathroom_screen():
-    # Only show the asset if it hasn't been searched yet
     if not searched_towel:
         imagebutton:
             idle "towel" 
@@ -62,7 +66,7 @@ screen bathroom_screen():
             xpos 0.6 ypos 0.78 anchor (0.5, 1.0)
             action Jump("clicked_body_wash")
 
-    # A way to exit the room
+    # option to leave room early
     textbutton "Leave Room":
         align (0.01, 0.05) 
         text_color "#ffffff"
@@ -71,6 +75,7 @@ screen bathroom_screen():
         text_bold True
         action Jump("leave_bathroom")
 
+# screen for kitchen
 screen kitchen_screen():
     # Magnet of Friends
     if not searched_magnet:
@@ -96,6 +101,7 @@ screen kitchen_screen():
             xpos 0.42 ypos 0.58 anchor (0.5, 1.0)
             action Jump("clicked_mug")
 
+    # option to leave room early
     textbutton "Leave Room":
         align (0.01, 0.05) 
         text_color "#ffffff"
@@ -105,7 +111,6 @@ screen kitchen_screen():
         action Jump("leave_kitchen")
 
 label day_1:
-
     # bedroom variables
     $ items_searched_studio = 0
     $ searched_yarn = False
@@ -134,35 +139,37 @@ label day_1:
         Amy "I can't find one of my paint brushes anywhere. I've had it since I was a kid."
 
     label day_1_search:
+        # check if all rooms have been searched before moving to next scene
         if searched_studio and searched_bathroom and searched_kitchen:
             Amy "Hmm. I don't know. I've searched everywhere. Maybe it'll turn up later."
             jump night_1
             
         scene hallway
         Amy "Where should I look?"
-    
-    menu:
-        "art studio" if not searched_studio:
+
+    menu: # user choice for which room to search first
+        "art studio" if not searched_studio: # remove option when searched
             Amy "Let me try searching my art studio."
+            scene studio with dissolve
+            show happy at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.9) # show Amy
             jump day_1_studio_search_loop
-        "bathroom" if not searched_bathroom:
+        "bathroom" if not searched_bathroom: # remove option when searched
             Amy "Let me check the bathroom."
+            scene bathroom with dissolve
+            show happy at Transform (xpos=0.9, ypos=.7, anchor=(0.5,0.5),zoom=1.5) # show Amy
             jump day_1_bathroom_search_loop
-        "kitchen" if not searched_kitchen:
+        "kitchen" if not searched_kitchen: # remove option when searched
             Amy "Might have left it in the kitchen."
+            scene kitchen with dissolve
+            show happy at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.9) # show Amy
             jump day_1_kitchen_search_loop
 
     label day_1_studio_search_loop:
-        # check if room has been searched
-        if items_searched_studio == 3:
+        if items_searched_studio == 3: # check if room has been searched
             Amy "Can't find it here."
             $ searched_studio = True
             jump day_1_search  
-        
-        scene studio with dissolve
-        show happy at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.9)
-        # This activates the clickable studio images
-        call screen studio_screen
+        call screen studio_screen # activate clickable studio images
 
     label clicked_yarn:
         Amy "I have tried over many years to try and get into knitting and I just can’t do it. Not because I don’t like it or anything, I just am genuinely so awful at it."
@@ -187,16 +194,12 @@ label day_1:
         jump day_1_search
 
     label day_1_bathroom_search_loop:
-        scene bathroom with dissolve
-        show happy at Transform (xpos=0.9, ypos=.7, anchor=(0.5,0.5),zoom=1.5)
-
         # check if room has been searched
         if items_searched_bathroom == 3:
             Amy "I guess it's not here."
             $ searched_bathroom = True
             jump day_1_search
-
-        call screen bathroom_screen
+        call screen bathroom_screen # activate clickable studio images
 
     label clicked_towel:
         Amy "Unintended tie dye. I have a hard time not staining towels with paint."
@@ -221,14 +224,12 @@ label day_1:
         jump day_1_search
 
     label day_1_kitchen_search_loop:
-        scene kitchen with dissolve
-        show happy at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.9)
+        # check if room has been searched
         if items_searched_kitchen == 3:
             Amy "I don't think it is here."
             $ searched_kitchen = True
             jump day_1_search
-        # This activates the clickable kitchen images
-        call screen kitchen_screen 
+        call screen kitchen_screen # activate clickable kitchen images
 
     label clicked_magnet:
         Amy "A magnet from the annual secret santa from my childhood friend group. It’s a collage of photos of us throughout the years."
@@ -251,10 +252,3 @@ label day_1:
     label leave_kitchen:
         Amy "Maybe I'll look somewhere else."
         jump day_1_search
-
-    label day_1_AI:
-        scene background
-        show paint_brush
-        show aimee
-        AI "..."
-        jump night_1

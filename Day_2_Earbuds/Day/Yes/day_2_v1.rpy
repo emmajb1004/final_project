@@ -107,6 +107,8 @@ label day_2_v1:
     menu:
         "Search Bedroom":
             Amy "Let me see if it's coming from my room."
+            scene master_bedroom with dissolve
+            show concerned2 at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.8)
             jump day_2_bedroom_loop 
 
     label day_2_bedroom_loop:
@@ -118,9 +120,6 @@ label day_2_v1:
             stop sound
             $ searched_bedroom = True
             jump day_2_living_room_loop_menu
-
-        scene master_bedroom with dissolve
-        show concerned2 at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.8)
         call screen bedroom_day2
 
     label clicked_mask:
@@ -146,6 +145,8 @@ label day_2_v1:
         menu:
             "Search Living Room":
                 Amy "Maybe it's coming from the living room."
+                scene living_room with dissolve
+                show concerned2 at Transform (xpos=0.9, ypos=.55, anchor=(0.5,0.5),zoom=0.8)
                 jump day_2_living_room_loop 
 
     # living room loop
@@ -158,9 +159,6 @@ label day_2_v1:
             pause 10.0
             stop sound
             jump day_2_kitchen_loop_menu
-        
-        scene living_room with dissolve
-        show concerned2 at Transform (xpos=0.9, ypos=.55, anchor=(0.5,0.5),zoom=0.8)
         call screen living_room_day2
 
     label clicked_record:
@@ -186,6 +184,8 @@ label day_2_v1:
         menu:
             "Search Kitchen":
                 Amy "I'll check the kitchen."
+                scene kitchen with dissolve
+                show concerned2 at Transform (xpos=0.92, ypos=.63, anchor=(0.5,0.5),zoom=0.7)
                 jump day_2_kitchen_loop 
 
     # kitchen loop
@@ -198,9 +198,6 @@ label day_2_v1:
             pause 11.5
             stop sound fadeout 1.0
             jump day_2_end
-        
-        scene kitchen with dissolve
-        show concerned2 at Transform (xpos=0.92, ypos=.63, anchor=(0.5,0.5),zoom=0.7)
         call screen kitchen_day2
 
     label clicked_bad_magnet:
