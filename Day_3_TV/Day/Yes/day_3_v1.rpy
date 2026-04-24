@@ -28,7 +28,7 @@ label day_3_v1:
         scene bad_movie with dissolve
         pause 14.0
         scene living_room with dissolve
-        Amy "I don't understand what is going on. What was that? Why does my head hurt so much?"
+        Amy "I don't understand what's going on. What was that? Why does my head hurt so much?"
         Amy "I think I need some water."
     
     label day_3_menu_v1:

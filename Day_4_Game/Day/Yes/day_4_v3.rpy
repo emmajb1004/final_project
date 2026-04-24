@@ -1,12 +1,12 @@
 define flash = Fade(0.1, 0.0, 0.5, color="#fff")
 
-screen living_room_day4_console():
-    if not clicked_console:
+screen living_room_day4_controller():
+    if not clicked_controller:
         imagebutton:
-            idle "game_console"
+            idle "controller"
             at item_hover, Transform(zoom=0.6)
             xpos 0.5 ypos 0.7 anchor (0.5, 0.5)
-            action Jump("clicked_console_day4")
+            action Jump("clicked_controller_day4_v3")
 
 screen kitchen_day4_water():
     if not clicked_water:
@@ -20,14 +20,14 @@ label day_4_v3:
     $ game = False
     $ kitchen = False
     $ water = False
-    $ clicked_console = False
+    $ clicked_controller = False
     $ clicked_water = False
 
     label day_4_intro_v3:
         scene living_room with pixellate
-        call screen living_room_day4_console
+        call screen living_room_day4_controller_v3
 
-    label clicked_console_day4:
+    label clicked_controller_day4_v3:
         #$ renpy.movie_cutscene("bad_gameplay.webm")
         Amy "I'm playing horrible. I can't remember what these buttons mean. Everything on the screen just feels like noise."
         jump day_4_menu_v3

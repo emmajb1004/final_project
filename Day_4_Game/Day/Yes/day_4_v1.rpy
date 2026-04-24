@@ -1,38 +1,58 @@
+image bad_game = Movie(play="images/brokengame.webm", channel="movie", loop=False)
+
 screen living_room_day4():
-    if not searched_controller:
-        imagebutton:
-            idle "controller"
-            at item_hover, Transform(zoom=0.5)
-            xpos 0.5 ypos 0.8 anchor (0.5, 0.5)
-            action Jump("clicked_controller")
+    imagebutton:
+        idle "controller"
+        at item_hover, Transform(zoom=0.3)
+        xpos 0.76 ypos 0.85 anchor (0.5, 1.0)
+        action Jump("clicked_controller")
+
+screen try_again_day4_v1():
+    imagebutton:
+        idle "controller"
+        at item_hover, Transform(zoom=0.3)
+        xpos 0.76 ypos 0.85 anchor (0.5, 1.0)
+        action Jump("clicked_controller_again")
 
 label day_4_v1:
-    $ cried_one = False
-    $ cried_two = False
-    $ cried_three = False
-    $ searched_controller = False
+    $ pull_together = False
+    $ think = False
+    $ break_down = False
 
     label day_4_intro_v1:
         scene living_room with pixellate
+        Amy "Let's...play a game"
+        "~Click the Controller~"
         call screen living_room_day4
     
     label clicked_controller:
-        Amy "I don't know what this is."
+        scene bad_game with dissolve
+        pause 12.0
+        scene living_room with dissolve
+        show distraught at Transform (xpos=0.9, ypos=.60, anchor=(0.5,0.5),zoom=1.2)
+        Amy "I..."
+        "~Try to Play Again. Click the Controller~"
+        call screen try_again_day4_v1
+    
+    label clicked_controller_again:
+        Amy "I don't know what that is."
+        Amy "I don't recognize it."
+        Amy "Should I?"
         jump day_4_menu_v1
 
     label day_4_menu_v1:
-        if cried_one and cried_two and cried_three:
+        if pull_together and think and break_down:
             jump night_4_v1  
         menu:
-            "pull yourself together" if not cried_one:
+            "pull yourself together" if not pull_together:
                 Amy "I can't."
-                $ cried_one = True
-                jump day_4_menu_v1
-            "try to think of anything" if not cried_two:
+                $ pull_together = True
+        menu:
+            "try to think of anything" if not think:
                 Amy "My head..."
-                $ cried_two = True
-                jump day_4_menu_v1
-            "break down" if not cried_three:
+                $ think = True
+        menu:
+            "break down" if not break_down:
                 Amy "..."
-                $ cried_three = True
+                $ break_down = True
                 jump day_4_menu_v1

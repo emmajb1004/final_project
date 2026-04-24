@@ -11,7 +11,8 @@ label day_3_v4:
     show living_room
     show moviehappy at Transform (xpos=0.92, ypos=.55, anchor=(0.5,0.5),zoom=1.0)
     Amy "I really want to watch a movie today."
-    Amy "I love low-budget horror films. They are so funny but I also respect someone going for it and making something."
+    Amy "I love low-budget horror films. They are so funny"
+    Amy "But I also respect someone going for it and making something."
     "~click on the black remote to watch~"
     call screen remote_screen
     scene good_movie with dissolve
