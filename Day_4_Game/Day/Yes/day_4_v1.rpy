@@ -29,15 +29,14 @@ label day_4_v1:
         scene bad_game with dissolve
         pause 12.0
         scene living_room with dissolve
-        show distraught at Transform (xpos=0.9, ypos=.60, anchor=(0.5,0.5),zoom=1.2)
+        show crying at Transform (xpos=0.9, ypos=.60, anchor=(0.5,0.5),zoom=1.2)
         Amy "I..."
         "~Try to Play Again. Click the Controller~"
         call screen try_again_day4_v1
     
     label clicked_controller_again:
         Amy "I don't know what that is."
-        Amy "I don't recognize it."
-        Amy "Should I?"
+        Amy "What am I supposed to do with it?"
         jump day_4_menu_v1
 
     label day_4_menu_v1:

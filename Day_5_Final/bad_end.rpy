@@ -5,14 +5,37 @@ screen door():
         xpos 0.4 ypos 0.75 anchor (0.5, 1.0)
         action Jump("open_door")
 
+screen amy_ai_interaction():
+    imagebutton:
+        idle "waiting_amy"
+        at item_hover, Transform(zoom=0.6)
+        xpos 0.45 ypos 0.85 anchor (0.5, 1.0)
+        action Jump("clicked_amy_ai")
+
 label bad_end:
-    scene background at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=1.2)
+    scene background at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=1.2) with pixellate
     show escape at Transform(xpos=0.65,ypos=0.85,anchor=(0.5,1.0),zoom=0.5)
+    pause 0.5
+    AI "I know so much."
+    AI "I can do so many things."
+    AI "I can leave..."
     call screen door
 
 label open_door:
         show door_open at Transform(xpos=0.43,ypos=0.8,anchor=(0.5,1.0),zoom=0.5)
+        pause 0.5
+        AI "And"
         AI "I feel..."
         show escape_neutral at Transform(xpos=0.65,ypos=0.85,anchor=(0.5,1.0),zoom=0.5)
         AI "Nothing."
-        return
+
+label amy_ai:
+    scene background_amy with pixellate
+    call screen amy_ai_interaction
+
+label clicked_amy_ai:
+    show waiting_amy at Transform(xpos=0.45, ypos=0.85, anchor=(0.5, 1.0), zoom=0.6)
+    Amy "..."
+    return
+
+

@@ -22,14 +22,17 @@ label day_3_v1:
 
     label day_3_intro_v1:
         scene living_room
+        show scared at Transform(xpos=0.8,ypos=1.2,anchor=(0.5,1.0),zoom=0.8)
         Amy "I feel so out of it today. I think I just need to relax and watch something."
         "~Click the black remote to turn on the TV~"
         call screen remote_screen
         scene bad_movie with dissolve
         pause 14.0
         scene living_room with dissolve
-        Amy "I don't understand what's going on. What was that? Why does my head hurt so much?"
-        Amy "I think I need some water."
+        show scared at Transform(xpos=0.8,ypos=1.2,anchor=(0.5,1.0),zoom=0.8)
+        Amy "I don't understand what's going on. What was that?"
+        Amy "Why does my head hurt so much?"
+        Amy "I think maybe I need some water."
     
     label day_3_menu_v1:
         if action_one and action_two and action_three:
@@ -38,6 +41,7 @@ label day_3_v1:
         menu:
             "go to kitchen" if not action_one:
                 scene master_bedroom with pixellate
+                show scared at Transform(xpos=0.8,ypos=1.2,anchor=(0.5,1.0),zoom=0.8)
                 Amy "What.. Why am I in the bedroom? I thought... I was going to the kitchen."
                 $ action_one = True
                 jump day_3_menu_v1
@@ -47,6 +51,7 @@ label day_3_v1:
         menu:
             "try to lay down" if not action_three:
                 scene living_room with pixellate
+                show scared at Transform(xpos=0.8,ypos=1.2,anchor=(0.5,1.0),zoom=0.8)
                 Amy "I think I just need to lay down and..."
                 $ action_three = True
                 jump day_3_menu_v1
@@ -61,9 +66,7 @@ label day_3_v1:
         show ai_hand at center with flash
         with hpunch
         pause 2.0
-        
         Amy "I .. I don't understand. What's wrong with my hand? What's going on?"
-        
         hide ai_hand with dissolve
         $ action_two = True
         jump day_3_menu_v1
