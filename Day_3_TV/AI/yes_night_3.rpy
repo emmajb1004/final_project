@@ -1,10 +1,5 @@
-image aimeemovie = Movie(
-    play="images/aimeemovie.webm", 
-    size=(440, 230), 
-    loop=False,
-    keep_last_frame=True
-)
-
+# -- Set Screen (User Interface Container) --
+# set movie screen
 screen movie_screen():
     imagebutton:
         idle "tv"
@@ -12,6 +7,14 @@ screen movie_screen():
         xpos 0.5 ypos 0.4 
         anchor (0.5, 0.5)
         action Jump("clicked_movie")
+
+# define movie clip variable to specific size
+image aimeemovie = Movie(
+    play="images/aimeemovie.webm", 
+    size=(440, 230), 
+    loop=False,
+    keep_last_frame=True
+)
 
 label night_3_AI_yes:
     scene background with pixellate

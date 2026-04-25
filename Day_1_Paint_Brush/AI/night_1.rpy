@@ -1,4 +1,5 @@
-screen paintbrush_screen():
+# -- Set Screen (User Interface Container) --
+screen paintbrush_screen(): # make paintbrush clickable
     imagebutton:
         idle "paint_brush"
         at item_hover, Transform(zoom=0.7)

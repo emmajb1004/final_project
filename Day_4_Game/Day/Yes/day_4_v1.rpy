@@ -1,5 +1,5 @@
-image bad_game = Movie(play="images/brokengame.webm", channel="movie", loop=False)
-
+# -- Set Screens (User Interface Container) --
+# set living room screen
 screen living_room_day4():
     imagebutton:
         idle "controller"
@@ -13,6 +13,9 @@ screen try_again_day4_v1():
         at item_hover, Transform(zoom=0.3)
         xpos 0.76 ypos 0.85 anchor (0.5, 1.0)
         action Jump("clicked_controller_again")
+
+# define game clip variable
+image bad_game = Movie(play="images/brokengame.webm", channel="movie", loop=False)
 
 label day_4_v1:
     $ pull_together = False

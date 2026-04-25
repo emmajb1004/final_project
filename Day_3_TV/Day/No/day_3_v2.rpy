@@ -1,4 +1,5 @@
-image zombieconfused = Movie(play="images/zombieconfused.webm", loop=False)
+# -- Set Screen (User Interface Container) --
+# set remote control screen
 screen remote_day_3_v2():
     # Remote
         imagebutton:
@@ -6,6 +7,9 @@ screen remote_day_3_v2():
             at item_hover, Transform(zoom=0.2) 
             xpos 0.45 ypos 0.68 anchor (0.5, 0.5)
             action Return()
+
+# set movie clip variable
+image zombieconfused = Movie(play="images/zombieconfused.webm", loop=False)
 
 label day_3_v2:
     scene living_room

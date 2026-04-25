@@ -1,12 +1,15 @@
-image okay_game_clip_1 = Movie(play="images/okaygameclip1.webm", loop=False)
-image okay_game_clip_2 = Movie(play="images/okaygameclip2.webm", loop=False)
-
+# -- Set Screen (User Interface Container) --
+# set living room screen
 screen living_room_day4_v4():
     imagebutton:
         idle "controller"
         at item_hover, Transform(zoom=0.3)
         xpos 0.76 ypos 0.85 anchor (0.5, 1.0)
         action Jump("clicked_controller_v4")
+
+# define game clip variables
+image okay_game_clip_1 = Movie(play="images/okaygameclip1.webm", loop=False)
+image okay_game_clip_2 = Movie(play="images/okaygameclip2.webm", loop=False)
 
 label day_4_v4:
 

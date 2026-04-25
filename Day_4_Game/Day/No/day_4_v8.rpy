@@ -1,11 +1,14 @@
-image good_game = Movie(play="images/goodgame.webm", loop=False)
-
+# -- Set Screen (User Interface Container) --
+# set living room screen
 screen living_room_day4_v8():
     imagebutton:
         idle "controller"
         at item_hover, Transform(zoom=0.3)
         xpos 0.76 ypos 0.85 anchor (0.5, 1.0)
         action Return()
+
+# define game clip variable
+image good_game = Movie(play="images/goodgame.webm", loop=False)
 
 label day_4_v8:
     show living_room

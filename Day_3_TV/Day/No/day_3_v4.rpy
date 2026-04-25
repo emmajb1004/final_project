@@ -1,11 +1,14 @@
-image good_movie = Movie(play="images/moviehappy.webm", loop=False)
-
+# -- Set Screen (User Interface Container) --
+# set remote control screen
 screen remote_screen():
     imagebutton:
         idle "remote"
         at item_hover, Transform(zoom=0.2) 
         xpos 0.45 ypos 0.68 anchor (0.5, 0.5)
         action Return()
+
+# define movie clip variable
+image good_movie = Movie(play="images/moviehappy.webm", loop=False)
 
 label day_3_v4:
     show living_room

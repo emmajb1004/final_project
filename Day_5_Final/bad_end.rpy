@@ -1,17 +1,19 @@
+# -- Set Screens (User Interface Container) --
+# set screen for door opening
 screen door():
     imagebutton:
         idle "door"
         at item_hover, Transform(zoom=0.5)
         xpos 0.4 ypos 0.75 anchor (0.5, 1.0)
         action Jump("open_door")
-
+# set screen for painting clicked
 screen painting():
     imagebutton:
         idle "escape_landscape"
         at item_hover, Transform(zoom=0.9)
         xpos 0.381 ypos 0.74 anchor (0.5, 1.0)
         action Jump("amy_ai")
-
+# set screen for Amy clicked
 screen amy_ai_interaction():
     imagebutton:
         idle "waiting_amy"

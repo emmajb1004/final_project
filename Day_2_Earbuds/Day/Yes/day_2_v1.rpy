@@ -1,4 +1,6 @@
-# Day 2 screens
+# -- Set Screens (User Interface Container) --
+# bedroom screens
+# Only show the asset if it hasn't been searched yet
 screen bedroom_day2():
     if not searched_mask:
         imagebutton:
@@ -21,6 +23,8 @@ screen bedroom_day2():
             xpos 0.8 ypos 0.62 anchor (0.5, 1.0)
             action Jump("clicked_fan")
 
+# living room screens
+# Only show the asset if it hasn't been searched yet
 screen living_room_day2():
     if not searched_record:
         imagebutton:
@@ -43,6 +47,8 @@ screen living_room_day2():
             xpos 0.12 ypos 0.6 anchor (0.5, 0.5)
             action Jump("clicked_console")
 
+# kitchen screens
+# Only show the asset if it hasn't been searched yet
 screen kitchen_day2():
     if not searched_magnet:
         imagebutton:
@@ -110,9 +116,9 @@ label day_2_v1:
             scene master_bedroom with dissolve
             show concerned2 at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.8)
             jump day_2_bedroom_loop 
-
+    # -- bedroom loop --
     label day_2_bedroom_loop:
-        if items_searched_bedroom == 3:
+        if items_searched_bedroom == 3: # check if room has been searched
             Amy "Hmm I guess it isn't coming from here."
             scene hallway with dissolve
             play sound sweetheart_clip2
@@ -149,9 +155,9 @@ label day_2_v1:
                 show concerned2 at Transform (xpos=0.9, ypos=.55, anchor=(0.5,0.5),zoom=0.8)
                 jump day_2_living_room_loop 
 
-    # living room loop
+    # --living room loop--
     label day_2_living_room_loop:
-        if items_searched_living_room == 3:
+        if items_searched_living_room == 3: # check if room has been searched
             Amy "Not from here I guess."
             $ searched_living_room = True
             scene hallway with dissolve
@@ -188,9 +194,9 @@ label day_2_v1:
                 show concerned2 at Transform (xpos=0.92, ypos=.63, anchor=(0.5,0.5),zoom=0.7)
                 jump day_2_kitchen_loop 
 
-    # kitchen loop
+    # --kitchen loop--
     label day_2_kitchen_loop:
-        if items_searched_kitchen == 3:
+        if items_searched_kitchen == 3: # check if room has been searched
             Amy "I feel really uncomfortable in this room. I need to leave."
             $ searched_kitchen = True
             scene hallway with dissolve

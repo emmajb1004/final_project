@@ -1,3 +1,5 @@
+# -- Set Screen (User Interface Container) --
+# set screen for A.I.MEE clicked
 screen good_end_ai():
     imagebutton:
         idle "waiting"

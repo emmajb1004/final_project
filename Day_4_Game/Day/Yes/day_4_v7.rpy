@@ -1,6 +1,5 @@
-define flash = Fade(0.1, 0.0, 0.5, color="#fff")
-image game_play_v7 = Movie(play="images/gameplayv7.webm", channel="movie", loop=False)
-
+# -- Set Screens (User Interface Container) --
+# set living room screen for controller click
 screen living_room_day4_v7():
     imagebutton:
         idle "controller"
@@ -8,6 +7,7 @@ screen living_room_day4_v7():
         xpos 0.76 ypos 0.85 anchor (0.5, 1.0)
         action Jump("clicked_controller_v7")
 
+# set living room screen for controller clicked again
 screen living_room_day4_v7_again():
         imagebutton:
             idle "controller"
@@ -15,6 +15,7 @@ screen living_room_day4_v7_again():
             xpos 0.76 ypos 0.85 anchor (0.5, 1.0)
             action Jump("clicked_controller_v7_again")
 
+# set kitchen screen for water
 screen kitchen_day4_v7():
         imagebutton:
             idle "water"
@@ -22,6 +23,10 @@ screen kitchen_day4_v7():
             xpos 0.42 ypos 0.59 anchor (0.5, 1.0)
             action Jump("clicked_water_v7")
 
+# define visual effect variable
+define flash = Fade(0.1, 0.0, 0.5, color="#fff")
+# define game clip variable
+image game_play_v7 = Movie(play="images/gameplayv7.webm", channel="movie", loop=False)
 
 label day_4_v7:
     $ water = False

@@ -1,3 +1,4 @@
+# -- Set Screen (User Interface Container) --
 screen aimee_interaction_day_3():
     imagebutton:
         idle "waiting"

@@ -1,30 +1,30 @@
+# -- Set Screens (User Interface Container) --
+# set screen for remote control
+screen remote_day_3_v3():
+    imagebutton:
+        idle "remote"
+        at item_hover, Transform(zoom=0.2) 
+        xpos 0.45 ypos 0.68 anchor (0.5, 0.5)
+        action Return()
+# set screen for laptop
+screen laptop_day_3_v3:
+    imagebutton:
+        idle "laptop"
+        at item_hover, Transform(zoom=0.1)
+        xpos 0.55 ypos 0.75 anchor (0.5, 1.0)
+        action Jump("clicked_laptop")
+# set screen for phone
+screen phone_day_3_v3:
+    imagebutton:
+        idle "phone"
+        at item_hover, Transform(zoom=0.2)
+        xpos 0.36 ypos 0.61 anchor (0.5, 0.5)
+        action Jump("clicked_phone")
+
+# define movie clip variables
 image movie_clip1 = Movie(play="images/zombieinsert1.webm", loop=False)
 image movie_clip2 = Movie(play="images/zombieinsert2.webm", loop=False)
 image movie_clip3 = Movie(play="images/zombieinsert3.webm", channel="movie", loop=False)
-
-screen remote_day_3_v3():
-    # Remote
-        imagebutton:
-            idle "remote"
-            at item_hover, Transform(zoom=0.2) 
-            xpos 0.45 ypos 0.68 anchor (0.5, 0.5)
-            action Return()
-
-screen laptop_day_3_v3:
-    # Laptop
-        imagebutton:
-            idle "laptop"
-            at item_hover, Transform(zoom=0.1)
-            xpos 0.55 ypos 0.75 anchor (0.5, 1.0)
-            action Jump("clicked_laptop")
-
-screen phone_day_3_v3:
-    # Phone
-        imagebutton:
-            idle "phone"
-            at item_hover, Transform(zoom=0.2)
-            xpos 0.36 ypos 0.61 anchor (0.5, 0.5)
-            action Jump("clicked_phone")
 
 label day_3_v3:
     $ laptop = False

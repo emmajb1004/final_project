@@ -1,7 +1,5 @@
-define flash = Fade(0.1, 0.0, 0.5, color="#fff")
-image broken_game_clip_1 = Movie(play="images/brokengameclip1.webm", loop=False)
-image broken_game_clip_2 = Movie(play="images/brokengameclip2.webm", loop=False)
-
+# -- Set Screens (User Interface Container) --
+# set living room screen
 screen living_room_day4_controller_v3():
     imagebutton:
         idle "controller"
@@ -9,12 +7,19 @@ screen living_room_day4_controller_v3():
         xpos 0.76 ypos 0.85 anchor (0.5, 1.0)
         action Jump("clicked_controller_day4_v3")
 
+# set kitchen screen
 screen kitchen_day4_water():
     imagebutton:
         idle "water"
         at item_hover, Transform(zoom=0.3)
         xpos 0.42 ypos 0.59 anchor (0.5, 1.0)
         action Jump("clicked_water_day4")
+
+# define visual effect variable
+define flash = Fade(0.1, 0.0, 0.5, color="#fff")
+# define game clip variables
+image broken_game_clip_1 = Movie(play="images/brokengameclip1.webm", loop=False)
+image broken_game_clip_2 = Movie(play="images/brokengameclip2.webm", loop=False)
 
 label day_4_v3:
     $ game = False
