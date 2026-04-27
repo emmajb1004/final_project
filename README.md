@@ -1,6 +1,31 @@
-The game features various choices for the user to make and scenarios for the user to go through. 
-The user must click objects, go through dialogue, and make branching narrative choices.
-It is built using the RenPy game engine and is about the impact of AI on creative communities.
-The all yes run of the game is supposed to represent the negative impacts and the all no run of the game is supposed to represent an appreciation of human art. 
-The game can not be played from downloading the github file alone.
-You must also have the RenPy game engine downloaded or have a copy of the executable file (which is not included).
+Amy / A.I.MEE
+An Interactive Narrative Experience on AI's Impact on the Creative Community
+
+Overview
+Amy / A.I.MEE is a multimedia visual novel built with the Ren’Py engine. The project explores the impacts of generative Artificial Intelligence on creative communities.
+
+Core Gameplay Mechanics
+Environmental Investigation: Use point-and-click mechanics to interact with objects and learn more about Amy and the impact A.I. is having on her.
+
+Narrative Branching: The story features decision-making that changes the scenarios in the story and ending of the game.
+
+The "All-Yes" Path: Represents the negative impact continued use of generative A.I. is having on creatives.
+
+The "All-No" Path: Represents an appreciation for human art.
+
+Multimedia Integration: The experience includes custom video and audio clips, and dynamic visuals that respond to the narrative state. A.I. generated imagery is featured to assist the narrative and demonstrate the difference between A.I. generation and human created art. 
+
+Technical Setup
+This repository contains the source code, script files (.rpy), and assets. To run the project, you have two options:
+
+Run via Ren’Py SDK:
+
+Download and install the Ren’Py Games Engine.
+
+Clone this repository into your Ren’Py projects directory.
+
+Launch the project through the Ren’Py launcher.
+
+Run via Executable:
+
+A standalone executable is required to play the game without the SDK. Please note that the compiled executable file is not included in this repository.
