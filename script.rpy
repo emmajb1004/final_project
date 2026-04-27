@@ -79,7 +79,9 @@ label movie_menu:
 
 label game_query_menu:
     scene grey5 with pixellate
-    if queried < 2:
+    if queried == 0:
+        jump good_end
+    elif queried < 2:
         $ play_game = False
     else:
         $ queried = True

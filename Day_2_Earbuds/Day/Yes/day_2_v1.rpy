@@ -115,6 +115,7 @@ label day_2_v1:
             Amy "Let me see if it's coming from my room."
             scene master_bedroom with dissolve
             show concerned2 at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.8)
+            "~find and click on the three interactable objects in the room~"
             jump day_2_bedroom_loop 
     # -- bedroom loop --
     label day_2_bedroom_loop:
@@ -153,6 +154,7 @@ label day_2_v1:
                 Amy "Maybe it's coming from the living room."
                 scene living_room with dissolve
                 show concerned2 at Transform (xpos=0.9, ypos=.55, anchor=(0.5,0.5),zoom=0.8)
+                "~find and click on the three interactable objects in the room~"
                 jump day_2_living_room_loop 
 
     # --living room loop--
@@ -192,6 +194,7 @@ label day_2_v1:
                 Amy "I'll check the kitchen."
                 scene kitchen with dissolve
                 show concerned2 at Transform (xpos=0.92, ypos=.63, anchor=(0.5,0.5),zoom=0.7)
+                "~find and click on the three interactable objects in the room~"
                 jump day_2_kitchen_loop 
 
     # --kitchen loop--

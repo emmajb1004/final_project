@@ -47,6 +47,7 @@ label amy_ai:
 label clicked_amy_ai:
     show waiting_amy at Transform(xpos=0.45, ypos=0.85, anchor=(0.5, 1.0), zoom=0.6)
     Amy "..."
+    pause 1.0
     return
 
 

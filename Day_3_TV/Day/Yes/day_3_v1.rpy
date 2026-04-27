@@ -49,7 +49,7 @@ label day_3_v1:
                 scene master_bedroom with pixellate
                 show scared at Transform(xpos=0.8,ypos=1.2,anchor=(0.5,1.0),zoom=0.8)
                 Amy "What.. Why am I in the bedroom? I thought... I was going to the kitchen."
-                $ ktichen = True
+                $ kitchen = True
                 jump day_3_menu_v1
         menu:
             "go get a glass of water" if not water:

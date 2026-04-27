@@ -16,7 +16,7 @@ label night_2_AI_yes:
     call screen earbuds_screen
 
 label clicked_earbuds:
-    play sound sweetheart volume 1.5
+    play sound sweetheart volume 10.0
     pause 8.0
     AI "...?"
     stop sound
