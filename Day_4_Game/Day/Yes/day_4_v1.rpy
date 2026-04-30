@@ -24,7 +24,7 @@ label day_4_v1:
 
     label day_4_intro_v1:
         scene living_room with pixellate
-        Amy "Let's...play a game"
+        Amy "Let's...play a game."
         "~Click the Controller~"
         call screen living_room_day4
     

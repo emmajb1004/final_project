@@ -175,13 +175,13 @@ label day_1:
         call screen studio_screen # activate clickable studio images
 
     label clicked_yarn:
-        Amy "I have tried over many years to try and get into knitting and I just can’t do it. Not because I don’t like it or anything, I just am genuinely so awful at it."
+        Amy "I have tried over many years to get into knitting and I just can’t do it. Not because I don’t like it or anything, I'm just so awful at it."
         $ searched_yarn = True
         $ items_searched_studio += 1
         jump day_1_studio_search_loop
 
     label clicked_work:
-        Amy "This is the first piece where I genuinely felt proud. It's hard to fully feel great about your own work all the time, but this one I really like."
+        Amy "This is the first piece I made where I genuinely felt proud. It's hard to fully feel great about your own work all the time, but this one I really like."
         $ searched_work = True
         $ items_searched_studio += 1
         jump day_1_studio_search_loop
@@ -205,13 +205,13 @@ label day_1:
         call screen bathroom_screen # activate clickable studio images
 
     label clicked_towel:
-        Amy "Unintended tie dye. I have a hard time not staining towels with paint."
+        Amy "Unintended tie-dye. I have a hard time not staining towels with paint."
         $ searched_towel = True
         $ items_searched_bathroom += 1
         jump day_1_bathroom_search_loop
 
     label clicked_hand_soap:
-        Amy "I like getting the fun hand soaps. This one is called carnival."
+        Amy "I like getting the fun hand soaps. This one is called 'Carnival'."
         $ searched_hand_soap = True
         $ items_searched_bathroom += 1
         jump day_1_bathroom_search_loop

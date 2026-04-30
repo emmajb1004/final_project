@@ -120,7 +120,7 @@ label day_2_v1:
     # -- bedroom loop --
     label day_2_bedroom_loop:
         if items_searched_bedroom == 3: # check if room has been searched
-            Amy "Hmm I guess it isn't coming from here."
+            Amy "Hmm, I guess it isn't coming from here."
             scene hallway with dissolve
             play sound sweetheart_clip2
             pause 9.0
@@ -136,7 +136,7 @@ label day_2_v1:
         jump day_2_bedroom_loop
 
     label clicked_alarm:
-        Amy "I like to test my abilities to read an analog clock from time to time... for some reason. But it isn't making any sound."
+        Amy "This isn't making any sound right now. It's not coming from here."
         $ searched_alarm = True
         $ items_searched_bedroom += 1
         jump day_2_bedroom_loop
@@ -176,7 +176,7 @@ label day_2_v1:
         jump day_2_living_room_loop
 
     label clicked_mitten:
-        Amy "It’s a little mitten my friend made me. A placeholder for a full sized pair. It was... hmm... I can’t remember my friend..."
+        Amy "It’s a little mitten my friend made me. A placeholder for a full sized pair. It was my friend... hmm... I can’t seem to remember my friend..."
         $ searched_mitten = True
         $ items_searched_living_room += 1
         jump day_2_living_room_loop

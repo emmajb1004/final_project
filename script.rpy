@@ -85,11 +85,11 @@ label game_query_menu:
         $ play_game = False
     else:
         $ queried = True
-    "Aimee wants to play a game"
+    "Aimee wants to play a game."
     
     menu:
         "Okay":
-            "You will play with Aimee"
+            "You will play with Aimee."
             jump bad_end
         "I don't want to play." if play_game == False:
             "You won't play with Aimee."
