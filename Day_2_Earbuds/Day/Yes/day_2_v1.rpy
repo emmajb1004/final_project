@@ -130,19 +130,25 @@ label day_2_v1:
         call screen bedroom_day2
 
     label clicked_mask:
+        show sleepmask at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.5)
         Amy "I haven’t been sleeping well the past couple days…"
+        hide sleepmask
         $ searched_mask = True
         $ items_searched_bedroom += 1
         jump day_2_bedroom_loop
 
     label clicked_alarm:
+        show alarm at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.7)
         Amy "This isn't making any sound right now. It's not coming from here."
+        hide alarm
         $ searched_alarm = True
         $ items_searched_bedroom += 1
         jump day_2_bedroom_loop
 
     label clicked_fan:
+        show fan at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.5)
         Amy "I like to be cold when I sleep. But it isn't turned on or making any sound now."
+        hide fan
         $ searched_fan = True
         $ items_searched_bedroom += 1
         jump day_2_bedroom_loop
@@ -170,19 +176,25 @@ label day_2_v1:
         call screen living_room_day2
 
     label clicked_record:
+        show record at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.7)
         Amy "My creative writing teacher in high school played Another Brick in The Wall to teach us about lyricism. He also made us regularly read his poetry in class and talk about how much we loved it. But that's not where the song is coming from."
+        hide record
         $ searched_record = True
         $ items_searched_living_room += 1
         jump day_2_living_room_loop
 
     label clicked_mitten:
+        show mitten at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.8)
         Amy "It’s a little mitten my friend made me. A placeholder for a full sized pair. It was my friend... hmm... I can’t seem to remember my friend..."
+        hide mitten
         $ searched_mitten = True
         $ items_searched_living_room += 1
         jump day_2_living_room_loop
 
     label clicked_console:
+        show console at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=1.0)
         Amy "Probably my favorite hobby. But the sound isn't coming from there."
+        hide console
         $ searched_console = True
         $ items_searched_living_room += 1
         jump day_2_living_room_loop
@@ -210,19 +222,25 @@ label day_2_v1:
         call screen kitchen_day2
 
     label clicked_bad_magnet:
+        show bad_magnet at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.4)
         Amy "Wait, this doesn’t look right… I don’t think these are the right pictures."
+        hide bad_magnet
         $ searched_magnet = True
         $ items_searched_kitchen += 1
         jump day_2_kitchen_loop
 
     label clicked_bad_mug:
+        show bad_mug at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.6)
         Amy "I don’t understand. I can’t read the writing anymore."
+        hide bad_mug
         $ searched_mug = True
         $ items_searched_kitchen += 1
         jump day_2_kitchen_loop
 
     label clicked_bad_pan:
+        show bad_pan at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.7)
         Amy "Wait. This isn't the right pan... what's going on?"
+        hide bad_pan
         $ searched_bad_pan = True
         $ items_searched_kitchen += 1
         jump day_2_kitchen_loop

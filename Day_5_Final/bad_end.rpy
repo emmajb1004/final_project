@@ -25,17 +25,18 @@ label bad_end:
     scene background at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=1.2) with pixellate
     show escape at Transform(xpos=0.65,ypos=0.85,anchor=(0.5,1.0),zoom=0.5)
     pause 0.5
-    AI "I know so much."
-    AI "I can do so many things."
-    AI "I can even leave..."
+    AI "So much is running through my head."
+    AI "I can't make sense of it all."
+    AI "What am I supposed to do now?"
     call screen door
 
 label open_door:
         show door_open at Transform(xpos=0.43,ypos=0.79,anchor=(0.5,1.0),zoom=0.6)
         show escape_landscape at Transform(xpos=0.381,ypos=0.74,anchor=(0.5,1.0),zoom=0.9)
         pause 0.5
-        AI "And"
-        AI "I feel..."
+        AI "I can leave..."
+        AI "I don't know to feel."
+        AI "I think I feel..."
         show escape_neutral at Transform(xpos=0.65,ypos=0.85,anchor=(0.5,1.0),zoom=0.5)
         AI "Nothing."
         call screen painting

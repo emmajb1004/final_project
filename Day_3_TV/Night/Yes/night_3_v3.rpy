@@ -6,7 +6,7 @@ screen painting_screen_night_3_v3():
         action Jump("clicked_painting_night_3_v3")
 
 label night_3_v3:
-    scene studio with pixellate
+    scene night_studio with pixellate
     show easel
     show landscape2 at Transform(xpos=0.5,ypos=0.4,anchor=(0.5,0.5),zoom=0.5)
     Amy "What? I don't want..." 

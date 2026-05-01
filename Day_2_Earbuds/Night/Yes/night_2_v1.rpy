@@ -6,7 +6,7 @@ screen painting_screen_night_2_v1():
         action Jump("clicked_painting_night_2_v1")
 
 label night_2_v1:
-    scene studio with dissolve
+    scene night_studio with dissolve
     show easel
     show landscape1 at Transform(xpos=0.5,ypos=0.4,anchor=(0.5,0.5),zoom=0.5)
     Amy "I'm having a harder time painting today."

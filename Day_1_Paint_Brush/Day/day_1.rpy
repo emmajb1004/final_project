@@ -136,7 +136,7 @@ label day_1:
 
     label day_1_intro:
         scene hallway
-        Amy "I can't find one of my paint brushes anywhere. I've had it since I was a kid."
+        Amy "I can't find one of my paint brushes anywhere. I've had it since I was a kid. And I really want to use it for my painting tonight."
 
     label day_1_search:
         # check if all rooms have been searched before moving to next scene
@@ -175,19 +175,25 @@ label day_1:
         call screen studio_screen # activate clickable studio images
 
     label clicked_yarn:
+        show yarn at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.8)
         Amy "I have tried over many years to get into knitting and I just can’t do it. Not because I don’t like it or anything, I'm just so awful at it."
+        hide yarn
         $ searched_yarn = True
         $ items_searched_studio += 1
         jump day_1_studio_search_loop
 
     label clicked_work:
+        show art at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.6)
         Amy "This is the first piece I made where I genuinely felt proud. It's hard to fully feel great about your own work all the time, but this one I really like."
+        hide art
         $ searched_work = True
         $ items_searched_studio += 1
         jump day_1_studio_search_loop
 
     label clicked_dad:
-        Amy "One of my first from when I was a kid. Painted it with my dad. I love painting with him."
+        show childart at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.8)
+        Amy "One of my first from when I was a kid. I used the paint brush I am trying to find for it. A gift from my dad. I love painting with him."
+        hide childart
         $ searched_dad = True
         $ items_searched_studio += 1
         jump day_1_studio_search_loop
@@ -205,19 +211,25 @@ label day_1:
         call screen bathroom_screen # activate clickable studio images
 
     label clicked_towel:
-        Amy "Unintended tie-dye. I have a hard time not staining towels with paint."
+        show towel at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=1.1)
+        Amy "Unintended tie-dye. I have a hard time not staining towels with paint. But the paint brush isn't hiding under it."
+        hide towel
         $ searched_towel = True
         $ items_searched_bathroom += 1
         jump day_1_bathroom_search_loop
 
     label clicked_hand_soap:
+        show handsoap at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.6)
         Amy "I like getting the fun hand soaps. This one is called 'Carnival'."
+        hide handsoap
         $ searched_hand_soap = True
         $ items_searched_bathroom += 1
         jump day_1_bathroom_search_loop
 
     label clicked_body_wash:
+        show bodywash at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.5)
         Amy "This is my splurge body wash. The absolute best smell but it costs $8 a bottle."
+        hide bodywash
         $ searched_body_wash = True
         $ items_searched_bathroom += 1
         jump day_1_bathroom_search_loop
@@ -235,19 +247,25 @@ label day_1:
         call screen kitchen_screen # activate clickable kitchen images
 
     label clicked_magnet:
+        show magnet at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.6)
         Amy "A magnet from the annual secret santa from my childhood friend group. It’s a collage of photos of us throughout the years."
+        hide magnet
         $ searched_magnet = True
         $ items_searched_kitchen += 1
         jump day_1_kitchen_search_loop
 
     label clicked_pan:
+        show pan at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.8)
         Amy "I bought this pan specifically to make cheesecake because I love it so much. "
+        hide pan
         $ searched_pan = True
         $ items_searched_kitchen += 1
         jump day_1_kitchen_search_loop
 
     label clicked_mug:
-        Amy "I got this mug from volunteering at the New York Film Festival when I was a teenager."
+        show mug at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=1.5)
+        Amy "I got this mug from volunteering at the New York Film Festival when I was a teenager. Unfortunately, my paint brush isn't in it."
+        hide mug
         $ searched_mug = True
         $ items_searched_kitchen += 1
         jump day_1_kitchen_search_loop
