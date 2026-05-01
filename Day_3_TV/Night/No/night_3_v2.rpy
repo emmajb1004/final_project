@@ -11,8 +11,7 @@ label night_3_v2:
     show landscape2 at Transform(xpos=0.5,ypos=0.4,anchor=(0.5,0.5),zoom=0.5)
     Amy "I really do love painting."
     "~click on the canvas to have Amy paint~"
-    call screen painting_screen_night_3_v3
-
+    call screen painting_screen_night_3_v2
 
 label clicked_painting_night_3_v2:
     show landscape3 at Transform(xpos=0.5,ypos=0.4,anchor=(0.5,0.5),zoom=0.5) # show painting
