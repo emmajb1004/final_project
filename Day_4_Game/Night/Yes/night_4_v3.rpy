@@ -1,7 +1,19 @@
+screen painting_screen_night_4_v3():
+    imagebutton:
+        idle "landscape3"
+        at item_hover, Transform(zoom=0.5)
+        xpos 0.5 ypos 0.4 anchor (0.5, 0.5)
+        action Jump("clicked_painting_night_4_v3")
+
 label night_4_v3:
     scene studio with pixellate
     show easel
-    show landscape4 at Transform(xpos=0.5,ypos=0.4,anchor=(0.5,0.5),zoom=0.5)
+    show landscape3 at Transform(xpos=0.5,ypos=0.4,anchor=(0.5,0.5),zoom=0.5)
     Amy "No I don't want to paint."
+    "~click on the canvas to have Amy paint~"
+    call screen painting_screen_night_4_v3
+
+label clicked_painting_night_4_v3:
+    show landscape4 at Transform(xpos=0.5,ypos=0.4,anchor=(0.5,0.5),zoom=0.5) # show painting
     Amy "It feels wrong. It feels so wrong. This painting..."
     jump night_4_AI_yes
