@@ -13,6 +13,7 @@ image zombieconfused = Movie(play="images/zombieconfused.webm", loop=False)
 
 label day_3_v2:
     scene living_room
+    show day_3_v2_amy at Transform (xpos=0.92, ypos=.55, anchor=(0.5,0.5),zoom=1.0)
     Amy "I feel a little bit better from yesterday."
     Amy "Maybe I should try to watch something."
     "~click black remote to watch something~"
@@ -21,9 +22,10 @@ label day_3_v2:
     pause 6.0
     scene living_room with dissolve
     pause 0.5
+    show day_3_v2_amy at Transform (xpos=0.92, ypos=.55, anchor=(0.5,0.5),zoom=1.0)
     Amy "That was... weird. What was that?"
     Amy "Maybe my TV is acting up."
     Amy "Oh well. I should probably just call it a day."
     menu:
-        "try to ignore it and get ready to paint":
+        "Try to Ignore It and Get Ready to Paint":
             jump night_3_v2

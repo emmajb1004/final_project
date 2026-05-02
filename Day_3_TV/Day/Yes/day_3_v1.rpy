@@ -13,7 +13,7 @@ screen kitchen_day3():
         idle "water"
         at item_hover, Transform(zoom=0.3)
         xpos 0.42 ypos 0.59 anchor (0.5, 1.0)
-        action Jump("clicked_glass_day3")
+        action Return()
 
 # variable to set up visual effect
 define flash = Fade(0.1, 0.0, 0.5, color="#fff")
@@ -22,10 +22,6 @@ define flash = Fade(0.1, 0.0, 0.5, color="#fff")
 image bad_movie = Movie(play="images/zombiebad.webm", channel="movie", loop=False)
 
 label day_3_v1:
-    $ kitchen = False
-    $ water = False
-    $ laydown = False
-
     label day_3_intro_v1:
         scene living_room
         show scared at Transform(xpos=0.8,ypos=1.2,anchor=(0.5,1.0),zoom=0.8)
@@ -38,40 +34,25 @@ label day_3_v1:
         show scared at Transform(xpos=0.8,ypos=1.2,anchor=(0.5,1.0),zoom=0.8)
         Amy "I don't understand what's going on. What was that?"
         Amy "Why does my head hurt so much?"
-        Amy "I think maybe I need some water."
-    
-    label day_3_menu_v1:
-        if kitchen and water and laydown:
-            jump night_3_v1      
-
-        menu:
-            "go to kitchen" if not kitchen:
-                scene master_bedroom with pixellate
-                show scared at Transform(xpos=0.8,ypos=1.2,anchor=(0.5,1.0),zoom=0.8)
-                Amy "What.. Why am I in the bedroom? I thought... I was going to the kitchen."
-                $ kitchen = True
-                jump day_3_menu_v1
-        menu:
-            "go get a glass of water" if not water:
-                jump day_3_kitchen_loop
-        menu:
-            "try to lay down" if not laydown:
-                scene living_room with pixellate
-                show scared at Transform(xpos=0.8,ypos=1.2,anchor=(0.5,1.0),zoom=0.8)
-                Amy "I think I just need to lay down and..."
-                $ laydown = True
-                jump day_3_menu_v1
-
-# kitchen loop
-    label day_3_kitchen_loop:
-        scene kitchen with pixellate
-        call screen kitchen_day3
-
-    label clicked_glass_day3:
-        show ai_hand at center with flash # Show the messed up AI hand asset
-        with hpunch
-        pause 2.0
-        Amy "I .. I don't understand. What's wrong with my hand? What's going on?"
-        hide ai_hand with dissolve
-        $ water = True
-        jump day_3_menu_v1
+        Amy "I feel like I'm burning up. I should get some water." 
+    menu:
+        "Go to Kitchen":
+            scene master_bedroom with pixellate
+            show scared at Transform(xpos=0.8,ypos=1.2,anchor=(0.5,1.0),zoom=0.8)
+            Amy "What.. Why am I in the bedroom? I thought... I was going to the kitchen."
+    menu:
+        "Go Get a Glass of Water":
+            scene kitchen with pixellate
+            "~click on the glass of water~"
+            call screen kitchen_day3
+            show ai_hand at center with flash # Show the messed up AI hand asset
+            with hpunch
+            pause 2.0
+            Amy "I .. I don't understand. What's wrong with my hand? What's going on?"
+            hide ai_hand with dissolve
+    menu:
+        "Try to Lay Down":
+            scene living_room with pixellate
+            show scared at Transform(xpos=0.8,ypos=1.2,anchor=(0.5,1.0),zoom=0.8)
+            Amy "I think I just need to lay down and..."
+            jump night_3_v1

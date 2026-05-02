@@ -144,26 +144,26 @@ label day_1:
             scene hallway with dissolve
             Amy "Hmm. I don't know. I've searched everywhere. Maybe it'll turn up later."
             menu:
-                "get ready to paint":
+                "Get Ready to Paint":
                     jump night_1
             
         scene hallway
         Amy "Where should I look?"
 
     menu: # user choice for which room to search first
-        "art studio" if not searched_studio: # remove option when searched
+        "Art Studio" if not searched_studio: # remove option when searched
             Amy "Let me try searching my art studio."
             scene studio with dissolve
             show happy at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.9) # show Amy
             "~find and click on the three interactable objects in the room~"
             jump day_1_studio_search_loop
-        "bathroom" if not searched_bathroom: # remove option when searched
+        "Bathroom" if not searched_bathroom: # remove option when searched
             Amy "Let me check the bathroom."
             scene bathroom with dissolve
             show happy at Transform (xpos=0.9, ypos=.7, anchor=(0.5,0.5),zoom=1.5) # show Amy
             "~find and click on the three interactable objects in the room~"
             jump day_1_bathroom_search_loop
-        "kitchen" if not searched_kitchen: # remove option when searched
+        "Kitchen" if not searched_kitchen: # remove option when searched
             Amy "Might have left it in the kitchen."
             scene kitchen with dissolve
             show happy at Transform (xpos=0.95, ypos=.55, anchor=(0.5,0.5),zoom=0.9) # show Amy
@@ -187,7 +187,7 @@ label day_1:
 
     label clicked_work:
         show art at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.6)
-        Amy "This is the first piece I made where I genuinely felt proud. It's hard to fully feel great about your own work all the time, but this one I really like."
+        Amy "This is the first piece I made where I felt really proud. It's hard to feel great about your own work all the time, but this one I really like."
         hide art
         $ searched_work = True
         $ items_searched_studio += 1

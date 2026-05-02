@@ -3,7 +3,7 @@ screen painting_screen_night_4_v1():
         idle "landscape3"
         at item_hover, Transform(zoom=0.5)
         xpos 0.5 ypos 0.4 anchor (0.5, 0.5)
-        action Jump("clicked_painting_night_4_v1")
+        action Return()
 
 label night_4_v1:
     scene night_studio with pixellate
@@ -12,8 +12,6 @@ label night_4_v1:
     Amy "I can feel it. Taking."
     "~click on the canvas to have Amy paint~"
     call screen painting_screen_night_4_v1
-
-label clicked_painting_night_4_v1:
     show landscape4 at Transform(xpos=0.5,ypos=0.4,anchor=(0.5,0.5),zoom=0.5) # show painting
     Amy "I hate it. I hate it."
     jump night_4_AI_yes

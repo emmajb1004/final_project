@@ -27,5 +27,5 @@ label day_3_v4:
     Amy "I can only imagine how hard it is to remove the body paint..."
     Amy "That reminds me, I should work on my painting!"
     menu:
-        "think of all the zombie media you like and get ready to paint":
+        "Think of All the Zombie Content You Like and Get Ready to Paint":
             jump night_3_v4

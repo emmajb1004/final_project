@@ -3,8 +3,8 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define Amy = Character("Amy", color="FFC72C")
-define AI = Character("A.I.MEE", color="6A6767")
+define Amy = Character("Amy", color="#ecd71d")
+define AI = Character("A.I.MEE", color="#6A6767")
 default queried = 0 # variable to keep track of how many queries, determines good or bad ending
 # variables to keep track of when the user chooses to query A.I.MEE, determines version of day
 default paint_query = False

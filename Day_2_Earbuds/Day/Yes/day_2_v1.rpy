@@ -147,7 +147,7 @@ label day_2_v1:
 
     label clicked_fan:
         show fan at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.5)
-        Amy "I like to be cold when I sleep. But it isn't turned on or making any sound now."
+        Amy "I like to be cold when I sleep."
         hide fan
         $ searched_fan = True
         $ items_searched_bedroom += 1
@@ -248,6 +248,6 @@ label day_2_v1:
     label day_2_end:
         Amy "I've searched everywhere. I don't understand. My head hurts. I just need to call it a day. And paint."
         menu:
-            "get ready to paint":
+            "Get Ready to Paint":
                 jump night_2_v1
 

@@ -23,5 +23,5 @@ label day_4_v8:
     Amy "I love games. Even simple platformers. Games were a huge bonding experience for me and my sibling growing up." 
     Amy "We still talk about games together to this day."
     menu:
-        "call your sibling and get ready to paint":
+        "Call Your Sibling and Get Ready to Paint":
             jump night_4_v8

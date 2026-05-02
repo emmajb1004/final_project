@@ -15,27 +15,28 @@ label day_4_v4:
 
     label day_4_intro_v4:
         scene living_room with pixellate
+        show day_4_v4_amy at Transform (xpos=0.9, ypos=.60, anchor=(0.5,0.5),zoom=0.9)
         Amy "It's been a while since I've played a game. I think I'd like to today."
-        "~click controller to play game~"
+        "~click controller to have Amy play a game~"
         call screen living_room_day4_v4
     
     label clicked_controller_v4:
             scene okay_game_clip_1 with dissolve
             pause 7.0
             scene living_room with dissolve
+            show day_4_v4_amy at Transform (xpos=0.9, ypos=.60, anchor=(0.5,0.5),zoom=0.9)
             Amy "Hmm... I'm not playing as well today."
             Amy "Maybe I should give it another go."
             jump day_4_menu_v4
 
     label day_4_menu_v4:
         menu:
-            "try to play again":
-                Amy "Okay."
+            "Try to Play Again":
                 scene okay_game_clip_2 with dissolve
                 pause 8.0
                 scene living_room with dissolve
+                show day_4_v4_amy at Transform (xpos=0.9, ypos=.60, anchor=(0.5,0.5),zoom=0.9)
                 Amy "I don't know. Today just isn't my day it seems."
-                Amy "That's okay. Painting will help me feel better!"
                 menu:
-                    "brush it off and get ready to paint":
+                    "Brush it Off and Get Ready to Paint":
                         jump night_4_v4
