@@ -22,4 +22,6 @@ label day_4_v8:
     show gamehappy at Transform (xpos=0.92, ypos=.60, anchor=(0.5,0.5),zoom=1.0)
     Amy "I love games. Even simple platformers. Games were a huge bonding experience for me and my sibling growing up." 
     Amy "We still talk about games together to this day."
-    jump night_4_v8
+    menu:
+        "call your sibling and get ready to paint":
+            jump night_4_v8

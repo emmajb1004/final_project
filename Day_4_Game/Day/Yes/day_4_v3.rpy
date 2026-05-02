@@ -49,9 +49,9 @@ label day_4_v3:
 
         menu:
             "keeping trying to play" if not game:
-                scene broken_game_clip_2 with pixellate
+                scene broken_game_clip_2 with dissolve
                 pause 6.0
-                scene living_room with pixellate
+                scene living_room with dissolve
                 Amy "What's happening to me? Nothing makes sense." 
                 Amy "Please make it stop. My head... is burning."
                 Amy "Maybe I should get some water."

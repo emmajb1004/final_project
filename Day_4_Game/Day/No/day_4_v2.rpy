@@ -21,9 +21,9 @@ label day_4_v2:
         call screen living_room_day4_v2
     
     label clicked_controller_v2:
-            scene broken_game_clip_1 with pixellate
+            scene broken_game_clip_1 with dissolve
             pause 2.0
-            scene living_room with pixellate
+            scene living_room with dissolve
             Amy "I don't... know what to do."
             jump day_4_menu_v2
 
@@ -33,9 +33,9 @@ label day_4_v2:
         menu:
             "try to play again" if not tried_again:
                 Amy "Okay."
-                scene broken_game_clip_2 with pixellate
+                scene broken_game_clip_2 with dissolve
                 pause 2.0
-                scene living_room with pixellate
+                scene living_room with dissolve
                 Amy "I just... can't do it."
                 $ tried_again = True
         menu:

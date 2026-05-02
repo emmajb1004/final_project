@@ -14,6 +14,7 @@ default play_game = True
 
 # The game starts here.
 label start:
+    call screen start_instructions
     scene grey1 with pixellate
     "Would you like to query the machine?"
 

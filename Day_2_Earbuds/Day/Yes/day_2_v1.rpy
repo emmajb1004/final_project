@@ -247,5 +247,7 @@ label day_2_v1:
     
     label day_2_end:
         Amy "I've searched everywhere. I don't understand. My head hurts. I just need to call it a day. And paint."
-        jump night_2_v1
+        menu:
+            "get ready to paint":
+                jump night_2_v1
 

@@ -26,4 +26,6 @@ label day_3_v4:
     Amy "There really was a period of time where all media was about zombies."
     Amy "I can only imagine how hard it is to remove the body paint..."
     Amy "That reminds me, I should work on my painting!"
-    jump night_3_v4
+    menu:
+        "think of all the zombie media you like and get ready to paint":
+            jump night_3_v4

@@ -35,8 +35,8 @@ label open_door:
         show escape_landscape at Transform(xpos=0.381,ypos=0.74,anchor=(0.5,1.0),zoom=0.9)
         pause 0.5
         AI "I can leave..."
-        AI "I don't know to feel."
-        AI "I think I feel..."
+        AI "I feel..."
+        AI "I feel..."
         show escape_neutral at Transform(xpos=0.65,ypos=0.85,anchor=(0.5,1.0),zoom=0.5)
         AI "Nothing."
         call screen painting
@@ -49,6 +49,6 @@ label clicked_amy_ai:
     show waiting_amy at Transform(xpos=0.45, ypos=0.85, anchor=(0.5, 1.0), zoom=0.6)
     Amy "..."
     pause 1.0
-    return
+    jump credits
 
 

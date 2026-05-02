@@ -19,9 +19,9 @@ label day_4_v5:
         call screen living_room_day4_v5
     
     label clicked_controller_v5:
-            scene broken_game_clip_2 with pixellate
+            scene broken_game_clip_2 with dissolve
             pause 6.0
-            scene living_room with pixellate
+            scene living_room with dissolve
             Amy "I don't... know what to do."
             jump day_4_menu_v5
 

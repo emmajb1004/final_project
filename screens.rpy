@@ -162,7 +162,7 @@ style say_dialogue:
     ypos gui.dialogue_ypos
 
     bold True
-    outlines [ (3, "#ffffff44", 0, 0) ]
+    outlines [ (2, "#ffffff44", 0, 0) ]
     color "#000000"
 
     adjust_spacing False
@@ -260,6 +260,7 @@ screen quick_menu():
             textbutton _("Q.Save") action QuickSave()
             textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
+            textbutton _("Help") action Show("instructions")
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -407,6 +408,7 @@ style main_menu_text:
 
 style main_menu_title:
     properties gui.text_properties("title")
+    outlines [ (2, "#000000", 2, 2) ]
 
 style main_menu_version:
     properties gui.text_properties("version")

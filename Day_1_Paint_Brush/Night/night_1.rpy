@@ -9,7 +9,7 @@ label night_1:
     scene night_studio with dissolve # show background
     show easel
     show landscape0 at Transform(xpos=0.5,ypos=0.4,anchor=(0.5,0.5),zoom=0.5) # show painting
-    Amy "I've been feeling off all day. But I must paint."
+    Amy "I've been feeling off all day. But I must paint, with or without the brush."
     "~click on the canvas to have Amy paint~"
     call screen painting_screen_night_1
 

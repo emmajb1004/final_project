@@ -22,6 +22,8 @@ label day_3_v2:
     scene living_room with dissolve
     pause 0.5
     Amy "That was... weird. What was that?"
-    Amy "I don't know. Maybe my TV is acting up."
-    Amy "Oh well. I should probably just call it a day and get to painting."
-    jump night_3_v2
+    Amy "Maybe my TV is acting up."
+    Amy "Oh well. I should probably just call it a day."
+    menu:
+        "try to ignore it and get ready to paint":
+            jump night_3_v2

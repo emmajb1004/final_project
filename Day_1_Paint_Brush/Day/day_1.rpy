@@ -141,8 +141,11 @@ label day_1:
     label day_1_search:
         # check if all rooms have been searched before moving to next scene
         if searched_studio and searched_bathroom and searched_kitchen:
+            scene hallway with dissolve
             Amy "Hmm. I don't know. I've searched everywhere. Maybe it'll turn up later."
-            jump night_1
+            menu:
+                "get ready to paint":
+                    jump night_1
             
         scene hallway
         Amy "Where should I look?"
@@ -192,7 +195,7 @@ label day_1:
 
     label clicked_dad:
         show childart at Transform(xpos=0.5,ypos=0.5,anchor=(0.5,0.5),zoom=0.8)
-        Amy "One of my first from when I was a kid. I used the paint brush I am trying to find for it. A gift from my dad. I love painting with him."
+        Amy "One of my first from when I was a kid. I used the brush I'm trying to find to paint it. A gift from my dad. I love painting with him."
         hide childart
         $ searched_dad = True
         $ items_searched_studio += 1

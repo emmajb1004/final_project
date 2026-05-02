@@ -51,7 +51,7 @@ label day_4_v7:
             Amy "I feel a bit off today." 
             Amy "I think I just need a minute to rest before painting."
             menu:
-                "get some rest":
+                "get some rest and get ready to paint":
                     jump night_4_v7       
 
         menu:
@@ -67,7 +67,7 @@ label day_4_v7:
     
     label clicked_water_v7:
         show ai_hand at center with flash
-        hide ai_hand with dissolve
+        hide ai_hand with pixellate
         pause 0.5
         Amy "Huh? That was weird. I swear my hand..." 
         Amy "I just didn't sleep well, that's all."
@@ -81,7 +81,7 @@ label day_4_v7:
 
     label clicked_controller_v7_again:
         show bad_controller at Transform(xpos=0.76,ypos=0.85, anchor=(0.5, 1.0), zoom=1.1) with flash
-        hide bad_controller with dissolve
+        hide bad_controller
         pause 0.5 
         Amy "Woah, I couldn't recognize the controller for a minute."
         $ game = True

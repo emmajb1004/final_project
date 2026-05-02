@@ -20,9 +20,9 @@ label day_4_v4:
         call screen living_room_day4_v4
     
     label clicked_controller_v4:
-            scene okay_game_clip_1 with pixellate
+            scene okay_game_clip_1 with dissolve
             pause 7.0
-            scene living_room with pixellate
+            scene living_room with dissolve
             Amy "Hmm... I'm not playing as well today."
             Amy "Maybe I should give it another go."
             jump day_4_menu_v4
@@ -31,9 +31,11 @@ label day_4_v4:
         menu:
             "try to play again":
                 Amy "Okay."
-                scene okay_game_clip_2 with pixellate
+                scene okay_game_clip_2 with dissolve
                 pause 8.0
-                scene living_room with pixellate
+                scene living_room with dissolve
                 Amy "I don't know. Today just isn't my day it seems."
                 Amy "That's okay. Painting will help me feel better!"
-                jump night_4_v4
+                menu:
+                    "brush it off and get ready to paint":
+                        jump night_4_v4
