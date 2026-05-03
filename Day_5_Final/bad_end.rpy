@@ -34,7 +34,7 @@ label open_door:
         show door_open at Transform(xpos=0.43,ypos=0.79,anchor=(0.5,1.0),zoom=0.6)
         show escape_landscape at Transform(xpos=0.381,ypos=0.74,anchor=(0.5,1.0),zoom=0.9)
         pause 0.5
-        AI "I can leave..."
+        AI "I can leave."
         AI "I feel..."
         AI "I feel..."
         show escape_neutral at Transform(xpos=0.65,ypos=0.85,anchor=(0.5,1.0),zoom=0.5)
