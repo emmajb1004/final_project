@@ -1,0 +1,14 @@
+# -- Set Screen (User Interface Container) --
+screen aimee_interaction_day_3():
+    imagebutton:
+        idle "waiting"
+        at item_hover, Transform(zoom=0.55)
+        xpos 0.45 ypos 0.85 anchor (0.5, 1.0)
+        action Return()
+
+label night_3_AI_no:
+    scene background with pixellate
+    call screen aimee_interaction_day_3
+    show waiting at Transform(xpos=0.45, ypos=0.85, anchor=(0.5, 1.0), zoom=0.55)
+    AI "..."
+    jump movie_menu
