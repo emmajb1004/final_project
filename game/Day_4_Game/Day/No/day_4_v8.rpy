@@ -20,8 +20,9 @@ label day_4_v8:
     pause 8.5
     scene living_room with dissolve
     show gamehappy at Transform (xpos=0.92, ypos=.60, anchor=(0.5,0.5),zoom=1.0)
-    Amy "I love games. Even simple platformers. Games were a huge bonding experience for me and my sibling growing up." 
-    Amy "We still talk about games together to this day."
+    Amy "I love games. Even simple platformers."
+    Amy "Games were a huge bonding experience for me and my sibling growing up." 
+    Amy "We still talk about games together to this day." 
     menu:
         "Call Your Sibling and Get Ready to Paint":
             jump night_4_v8

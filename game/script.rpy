@@ -79,10 +79,10 @@ label movie_menu:
                 jump day_4_v8 # jump to day 4, version 6 in script
 
 label game_query_menu:
-    scene grey5 with pixellate
     if queried == 0:
         jump good_end
-    elif queried < 2:
+    scene grey5 with pixellate
+    if queried < 2:
         $ play_game = False
     else:
         $ queried = True
@@ -93,5 +93,4 @@ label game_query_menu:
             "You will play with Aimee."
             jump bad_end
         "I don't want to play." if play_game == False:
-            "You won't play with Aimee."
-            jump good_end
+            "You won't play w
