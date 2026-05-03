@@ -93,4 +93,5 @@ label game_query_menu:
             "You will play with Aimee."
             jump bad_end
         "I don't want to play." if play_game == False:
-            "You won't play w
+            "You won't play with Aimee."
+            jump good_end
