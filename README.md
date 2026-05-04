@@ -1,8 +1,9 @@
-Amy / A.I.MEE
+A.I.MEE
+
 An Interactive Narrative Experience on AI's Impact on the Creative Community
 
 Overview
-Amy / A.I.MEE is a multimedia visual novel built with the Ren’Py engine. The project explores the impacts of generative Artificial Intelligence on creative communities.
+A.I.MEE is a multimedia visual novel built with the Ren’Py engine. The project explores the impacts of generative Artificial Intelligence on creative communities.
 
 Core Gameplay Mechanics
 Environmental Investigation: Use point-and-click mechanics to interact with objects and learn more about Amy and the impact A.I. is having on her.
